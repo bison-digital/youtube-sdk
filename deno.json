@@ -1,0 +1,19 @@
+{
+  "name": "@bisondigital/youtube-sdk",
+  "version": "0.1.0", 
+  "description": "Generated TypeScript SDK for YouTube Data API v3 with Live Chat support",
+  "license": "MIT",
+  "repository": "github:bison-digital/youtube-sdk",
+  "exports": {
+    ".": "./src/index.ts",
+    "./types": "./src/types/index.ts"
+  },
+  "publish": {
+    "exclude": [
+      ".github/",
+      "dist/", 
+      "node_modules/",
+      "*.config.*"
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@skmtc/gen-zod",
+  "version": "0.0.34",
+  "imports": {},
+  "exports": "./mod.ts",
+  "tasks": {
+    "publish": "deno publish --allow-slow-types --allow-dirty --token=$JSR_AUTH_TOKEN"
+  }
+}

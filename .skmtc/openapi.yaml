@@ -1,0 +1,624 @@
+openapi: 3.0.3
+info:
+  title: YouTube Data API v3 - LiveChatMessages
+  description: API for managing live chat messages in YouTube live streams
+  version: "3.0"
+  contact:
+    name: Google Developers
+    url: https://developers.google.com/youtube/v3
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms/
+
+servers:
+  - url: https://www.googleapis.com/youtube/v3
+    description: YouTube Data API v3
+
+security:
+  - OAuth2: []
+  - ApiKey: []
+
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/youtube: Manage your YouTube account
+            https://www.googleapis.com/auth/youtube.force-ssl: See, edit, and permanently delete your YouTube videos, ratings, comments and captions
+    ApiKey:
+      type: apiKey
+      in: query
+      name: key
+
+  schemas:
+    LiveChatMessage:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: Identifies the API resource's type
+          example: "youtube#liveChatMessage"
+        etag:
+          type: string
+          description: The ETag of the resource
+        id:
+          type: string
+          description: The ID that YouTube assigns to uniquely identify the message
+        snippet:
+          $ref: '#/components/schemas/LiveChatMessageSnippet'
+        authorDetails:
+          $ref: '#/components/schemas/LiveChatMessageAuthorDetails'
+
+    LiveChatMessageSnippet:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - textMessageEvent
+            - superChatEvent
+            - memberMilestoneChatEvent
+            - newSponsorEvent
+            - userBannedEvent
+            - messageDeletedEvent
+            - messageRetractedEvent
+            - pollEvent
+            - membershipGiftingEvent
+            - giftMembershipReceivedEvent
+            - superStickerEvent
+          description: The type of message
+        liveChatId:
+          type: string
+          description: The ID of the live chat with which the message is associated
+        authorChannelId:
+          type: string
+          description: The ID of the user that authored this message
+        publishedAt:
+          type: string
+          format: date-time
+          description: The date and time when the message was orginally published
+        hasDisplayContent:
+          type: boolean
+          description: Whether the message has rich display content
+        displayMessage:
+          type: string
+          description: Contains the user's message
+        textMessageDetails:
+          $ref: '#/components/schemas/LiveChatTextMessageDetails'
+        superChatDetails:
+          $ref: '#/components/schemas/LiveChatSuperChatDetails'
+        memberMilestoneChatDetails:
+          $ref: '#/components/schemas/LiveChatMemberMilestoneChatDetails'
+        newSponsorDetails:
+          $ref: '#/components/schemas/LiveChatNewSponsorDetails'
+        userBannedDetails:
+          $ref: '#/components/schemas/LiveChatUserBannedDetails'
+        messageDeletedDetails:
+          $ref: '#/components/schemas/LiveChatMessageDeletedDetails'
+        messageRetractedDetails:
+          $ref: '#/components/schemas/LiveChatMessageRetractedDetails'
+        pollDetails:
+          $ref: '#/components/schemas/LiveChatPollDetails'
+        membershipGiftingDetails:
+          $ref: '#/components/schemas/LiveChatMembershipGiftingDetails'
+        giftMembershipReceivedDetails:
+          $ref: '#/components/schemas/LiveChatGiftMembershipReceivedDetails'
+        superStickerDetails:
+          $ref: '#/components/schemas/LiveChatSuperStickerDetails'
+
+    LiveChatMessageAuthorDetails:
+      type: object
+      properties:
+        channelId:
+          type: string
+          description: The YouTube channel ID
+        channelUrl:
+          type: string
+          description: The channel's URL
+        displayName:
+          type: string
+          description: The channel's display name
+        profileImageUrl:
+          type: string
+          description: The channels's avatar URL
+        isVerified:
+          type: boolean
+          description: Whether the author is a verified YouTube creator
+        isChatOwner:
+          type: boolean
+          description: Whether the author is the owner of the live chat
+        isChatSponsor:
+          type: boolean
+          description: Whether the author is a sponsor of the live chat
+        isChatModerator:
+          type: boolean
+          description: Whether the author is a moderator of the live chat
+
+    LiveChatTextMessageDetails:
+      type: object
+      properties:
+        messageText:
+          type: string
+          description: The user's message
+
+    LiveChatSuperChatDetails:
+      type: object
+      properties:
+        amountMicros:
+          type: string
+          description: A rendered string that displays the fund amount and currency
+        currency:
+          type: string
+          description: The currency in which the purchase was made
+        amountDisplayString:
+          type: string
+          description: A rendered string that displays the fund amount and currency to the user
+        userComment:
+          type: string
+          description: The comment added by the user to the Super Chat event
+        tier:
+          type: integer
+          description: The tier for the paid message
+
+    LiveChatMemberMilestoneChatDetails:
+      type: object
+      properties:
+        memberMonth:
+          type: integer
+          description: The total amount of months the user has been a member of this channel
+        memberLevelName:
+          type: string
+          description: The name of the level at which the user is a member of this channel
+        userComment:
+          type: string
+          description: The comment added by the user to this Member Milestone Chat event
+
+    LiveChatNewSponsorDetails:
+      type: object
+      properties:
+        memberLevelName:
+          type: string
+          description: The name of the level that the user joined
+        isUpgrade:
+          type: boolean
+          description: If the user was already a member, this field indicates whether the user has upgraded to a higher level
+
+    LiveChatUserBannedDetails:
+      type: object
+      properties:
+        bannedUserDetails:
+          $ref: '#/components/schemas/ChannelProfileDetails'
+        banType:
+          type: string
+          enum: [permanent, temporary]
+          description: The type of ban
+        banDurationSeconds:
+          type: string
+          description: The duration of a temporary ban, in seconds
+
+    LiveChatMessageDeletedDetails:
+      type: object
+      properties:
+        deletedMessageId:
+          type: string
+          description: The ID of the deleted message
+
+    LiveChatMessageRetractedDetails:
+      type: object
+      properties:
+        retractedMessageId:
+          type: string
+          description: The ID of the retracted message
+
+    LiveChatPollDetails:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/LiveChatPollDetailsPollMetadata'
+        status:
+          type: string
+          enum: [active, closed]
+          description: The poll's status
+
+    LiveChatPollDetailsPollMetadata:
+      type: object
+      properties:
+        questionText:
+          type: string
+          description: The poll's question
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/LiveChatPollChoice'
+
+    LiveChatPollChoice:
+      type: object
+      properties:
+        text:
+          type: string
+          description: The poll choice's text
+        tally:
+          type: string
+          description: The poll choice's tally
+
+    LiveChatMembershipGiftingDetails:
+      type: object
+      properties:
+        giftMembershipsCount:
+          type: integer
+          description: The number of gift memberships purchased by the user
+        giftMembershipsLevelName:
+          type: string
+          description: The name of the level of the gift membership
+
+    LiveChatGiftMembershipReceivedDetails:
+      type: object
+      properties:
+        memberLevelName:
+          type: string
+          description: The name of the membership level that was gifted
+        gifterChannelId:
+          type: string
+          description: The ID of the channel that made the gift membership purchase
+        associatedMembershipGiftingMessageId:
+          type: string
+          description: The ID of the membership gifting purchase that this gift membership received event is associated with
+
+    LiveChatSuperStickerDetails:
+      type: object
+      properties:
+        superStickerMetadata:
+          $ref: '#/components/schemas/SuperStickerMetadata'
+        amountMicros:
+          type: string
+          description: The purchase amount, in micros of the purchase currency
+        currency:
+          type: string
+          description: The currency in which the purchase was made
+        amountDisplayString:
+          type: string
+          description: A rendered string that displays the purchase amount and currency
+
+    SuperStickerMetadata:
+      type: object
+      properties:
+        stickerId:
+          type: string
+          description: Sticker ID
+        altText:
+          type: string
+          description: Internationalized alt text that describes the sticker image
+        language:
+          type: string
+          description: Specifies the localization language
+
+    ChannelProfileDetails:
+      type: object
+      properties:
+        channelId:
+          type: string
+          description: The YouTube channel ID
+        channelUrl:
+          type: string
+          description: The channel's URL
+        displayName:
+          type: string
+          description: The channel's display name
+        profileImageUrl:
+          type: string
+          description: The channels's avatar URL
+
+    LiveChatMessageListResponse:
+      type: object
+      properties:
+        kind:
+          type: string
+          example: "youtube#liveChatMessageListResponse"
+        etag:
+          type: string
+        nextPageToken:
+          type: string
+          description: The token that can be used as the value of the pageToken parameter
+        pollingIntervalMillis:
+          type: integer
+          description: The amount of time the client should wait before polling again
+        offlineAt:
+          type: string
+          format: date-time
+          description: The date and time when the underlying stream went offline
+        pageInfo:
+          $ref: '#/components/schemas/PageInfo'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/LiveChatMessage'
+
+    PageInfo:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          description: The total number of results in the result set
+        resultsPerPage:
+          type: integer
+          description: The number of results included in the API response
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
+            errors:
+              type: array
+              items:
+                type: object
+                properties:
+                  domain:
+                    type: string
+                  reason:
+                    type: string
+                  message:
+                    type: string
+
+paths:
+  /liveChatMessages:
+    get:
+      summary: Returns a list of live chat messages for a specific chat
+      operationId: listLiveChatMessages
+      tags:
+        - Live Chat Messages
+      parameters:
+        - name: liveChatId
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The liveChatId parameter specifies the ID of the live chat for which the API should return live chat messages
+        - name: part
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The part parameter specifies the liveChatMessage resource properties that the API response will include
+          example: "id,snippet,authorDetails"
+        - name: hl
+          in: query
+          schema:
+            type: string
+          description: The hl parameter instructs the API to retrieve localized resource metadata for a specific application language
+        - name: maxResults
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 2000
+            default: 500
+          description: The maxResults parameter specifies the maximum number of messages that should be returned in the result set
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+          description: The pageToken parameter identifies a specific page in the result set that should be returned
+        - name: profileImageSize
+          in: query
+          schema:
+            type: integer
+            minimum: 16
+            maximum: 720
+          description: The profileImageSize parameter specifies the size of the user profile pictures that should be returned in the result set
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LiveChatMessageListResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+        - OAuth2: [https://www.googleapis.com/auth/youtube]
+        - OAuth2: [https://www.googleapis.com/auth/youtube.force-ssl]
+        - ApiKey: []
+
+    post:
+      summary: Adds a message to a live chat
+      operationId: insertLiveChatMessage
+      tags:
+        - Live Chat Messages
+      parameters:
+        - name: part
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The part parameter serves two purposes. It identifies the properties that the write operation will set as well as the properties that the API response will include
+          example: "snippet"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                snippet:
+                  type: object
+                  properties:
+                    liveChatId:
+                      type: string
+                      description: The ID of the live chat for which the message is being inserted
+                    type:
+                      type: string
+                      enum: [textMessageEvent]
+                      description: The type of message being inserted
+                    textMessageDetails:
+                      type: object
+                      properties:
+                        messageText:
+                          type: string
+                          description: The message text
+                      required:
+                        - messageText
+                  required:
+                    - liveChatId
+                    - type
+                    - textMessageDetails
+              required:
+                - snippet
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LiveChatMessage'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+        - OAuth2: [https://www.googleapis.com/auth/youtube]
+        - OAuth2: [https://www.googleapis.com/auth/youtube.force-ssl]
+
+  /liveChatMessages/{id}:
+    delete:
+      summary: Deletes a chat message
+      operationId: deleteLiveChatMessage
+      tags:
+        - Live Chat Messages
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The id parameter specifies the YouTube chat message ID of the resource that is being deleted
+      responses:
+        '204':
+          description: The message was successfully deleted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+        - OAuth2: [https://www.googleapis.com/auth/youtube]
+        - OAuth2: [https://www.googleapis.com/auth/youtube.force-ssl]
+
+  /liveChatMessages/transition:
+    post:
+      summary: Updates the state of a poll item in a live chat message
+      operationId: transitionLiveChatMessage
+      tags:
+        - Live Chat Messages
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The id parameter specifies the YouTube live chat message ID of the resource that is being updated
+        - name: status
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [closed]
+          description: The status parameter identifies the new moderation status of the resource
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LiveChatMessage'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+        - OAuth2: [https://www.googleapis.com/auth/youtube]
+        - OAuth2: [https://www.googleapis.com/auth/youtube.force-ssl]

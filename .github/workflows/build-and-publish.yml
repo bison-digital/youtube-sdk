@@ -1,0 +1,116 @@
+name: Build and Publish YouTube SDK
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  release:
+    types: [created]
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  generate-and-build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@zbimson'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate SDK code
+        run: |
+          # Run the SKMTC CLI to generate code
+          echo "Generating SDK code from OpenAPI spec..."
+          deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --project=pregnant-tuna-704 --generate || true
+          
+          # Create src directory if it doesn't exist
+          mkdir -p src
+          
+          # Copy generated files from .skmtc to src (adjust path as needed)
+          if [ -d ".skmtc/pregnant-tuna-704/gen-basic-sdk" ]; then
+            cp -r .skmtc/pregnant-tuna-704/gen-basic-sdk/* src/
+          fi
+          
+          # List generated files for debugging
+          echo "Generated files:"
+          find src -type f -name "*.ts" | head -20
+
+      - name: Create index.ts
+        run: |
+          cat > src/index.ts << 'EOF'
+          // Main exports for YouTube SDK
+          export { YouTubeClient } from './YouTubeClient.generated.js';
+          export { SdkClientBase } from './SdkClientBase.js';
+          
+          // Export all types
+          export * from './types/liveChatMessage.generated.js';
+          export * from './types/liveChatMessageListResponse.generated.js';
+          export * from './types/liveChatMessageAuthorDetails.generated.js';
+          export * from './types/liveChatMessageSnippet.generated.js';
+          export * from './types/liveChatTextMessageDetails.generated.js';
+          export * from './types/liveChatSuperChatDetails.generated.js';
+          export * from './types/liveChatSuperStickerDetails.generated.js';
+          export * from './types/liveChatMemberMilestoneChatDetails.generated.js';
+          export * from './types/liveChatNewSponsorDetails.generated.js';
+          export * from './types/liveChatMembershipGiftingDetails.generated.js';
+          export * from './types/liveChatGiftMembershipReceivedDetails.generated.js';
+          export * from './types/liveChatUserBannedDetails.generated.js';
+          export * from './types/liveChatMessageDeletedDetails.generated.js';
+          export * from './types/liveChatMessageRetractedDetails.generated.js';
+          export * from './types/liveChatPollDetails.generated.js';
+          export * from './types/liveChatPollChoice.generated.js';
+          export * from './types/liveChatPollDetailsPollMetadata.generated.js';
+          export * from './types/channelProfileDetails.generated.js';
+          export * from './types/pageInfo.generated.js';
+          export * from './types/superStickerMetadata.generated.js';
+          export * from './types/error.generated.js';
+          EOF
+
+      - name: Fix import paths
+        run: |
+          # Fix Deno-style imports to Node.js-style imports
+          find src -name "*.ts" -exec sed -i 's|from '"'"'@/|from '"'"'./|g' {} \;
+          find src -name "*.ts" -exec sed -i 's|\.ts'"'"'|.js'"'"'|g' {} \;
+
+      - name: Build package
+        run: |
+          npx tsc
+          npx rollup -c
+
+      - name: Run tests (if any)
+        run: |
+          # Add test command when tests are available
+          echo "No tests configured yet"
+
+      - name: Publish to NPM (on release)
+        if: github.event_name == 'release'
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 7

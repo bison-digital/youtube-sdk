@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "@skmtc/gen-basic-sdk": "./gen-basic-sdk/mod.ts",
+    "@skmtc/gen-zod": "./gen-zod/mod.ts",
+    "@skmtc/gen-typescript": "./gen-typescript/mod.ts"
+  },
+  "workspace": [
+    "./gen-basic-sdk",
+    "./gen-zod",
+    "./gen-typescript"
+  ]
+}

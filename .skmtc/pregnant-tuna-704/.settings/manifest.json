@@ -1,0 +1,210 @@
+{
+  "deploymentId": "48t4rfm19qc8",
+  "traceId": "2d7dc47b40fe4c8a8670f7ab76dbb649",
+  "spanId": "aa1d50e3b53a5785",
+  "region": "europe-west2",
+  "files": {
+    "YouTubeClient.generated.ts": {
+      "lines": 51,
+      "characters": 2421,
+      "destinationPath": "@/YouTubeClient.generated.ts"
+    },
+    "types/liveChatMessageListResponse.generated.ts": {
+      "lines": 8,
+      "characters": 816,
+      "destinationPath": "@/types/liveChatMessageListResponse.generated.ts"
+    },
+    "types/pageInfo.generated.ts": {
+      "lines": 6,
+      "characters": 251,
+      "destinationPath": "@/types/pageInfo.generated.ts"
+    },
+    "types/liveChatMessage.generated.ts": {
+      "lines": 8,
+      "characters": 715,
+      "destinationPath": "@/types/liveChatMessage.generated.ts"
+    },
+    "types/liveChatMessageSnippet.generated.ts": {
+      "lines": 17,
+      "characters": 3901,
+      "destinationPath": "@/types/liveChatMessageSnippet.generated.ts"
+    },
+    "types/liveChatTextMessageDetails.generated.ts": {
+      "lines": 6,
+      "characters": 195,
+      "destinationPath": "@/types/liveChatTextMessageDetails.generated.ts"
+    },
+    "types/liveChatSuperChatDetails.generated.ts": {
+      "lines": 6,
+      "characters": 483,
+      "destinationPath": "@/types/liveChatSuperChatDetails.generated.ts"
+    },
+    "types/liveChatMemberMilestoneChatDetails.generated.ts": {
+      "lines": 6,
+      "characters": 369,
+      "destinationPath": "@/types/liveChatMemberMilestoneChatDetails.generated.ts"
+    },
+    "types/liveChatNewSponsorDetails.generated.ts": {
+      "lines": 6,
+      "characters": 271,
+      "destinationPath": "@/types/liveChatNewSponsorDetails.generated.ts"
+    },
+    "types/liveChatUserBannedDetails.generated.ts": {
+      "lines": 7,
+      "characters": 530,
+      "destinationPath": "@/types/liveChatUserBannedDetails.generated.ts"
+    },
+    "types/channelProfileDetails.generated.ts": {
+      "lines": 6,
+      "characters": 403,
+      "destinationPath": "@/types/channelProfileDetails.generated.ts"
+    },
+    "types/liveChatMessageDeletedDetails.generated.ts": {
+      "lines": 6,
+      "characters": 211,
+      "destinationPath": "@/types/liveChatMessageDeletedDetails.generated.ts"
+    },
+    "types/liveChatMessageRetractedDetails.generated.ts": {
+      "lines": 6,
+      "characters": 219,
+      "destinationPath": "@/types/liveChatMessageRetractedDetails.generated.ts"
+    },
+    "types/liveChatPollDetails.generated.ts": {
+      "lines": 7,
+      "characters": 450,
+      "destinationPath": "@/types/liveChatPollDetails.generated.ts"
+    },
+    "types/liveChatPollDetailsPollMetadata.generated.ts": {
+      "lines": 7,
+      "characters": 404,
+      "destinationPath": "@/types/liveChatPollDetailsPollMetadata.generated.ts"
+    },
+    "types/liveChatPollChoice.generated.ts": {
+      "lines": 6,
+      "characters": 225,
+      "destinationPath": "@/types/liveChatPollChoice.generated.ts"
+    },
+    "types/liveChatMembershipGiftingDetails.generated.ts": {
+      "lines": 6,
+      "characters": 329,
+      "destinationPath": "@/types/liveChatMembershipGiftingDetails.generated.ts"
+    },
+    "types/liveChatGiftMembershipReceivedDetails.generated.ts": {
+      "lines": 6,
+      "characters": 427,
+      "destinationPath": "@/types/liveChatGiftMembershipReceivedDetails.generated.ts"
+    },
+    "types/liveChatSuperStickerDetails.generated.ts": {
+      "lines": 7,
+      "characters": 570,
+      "destinationPath": "@/types/liveChatSuperStickerDetails.generated.ts"
+    },
+    "types/superStickerMetadata.generated.ts": {
+      "lines": 6,
+      "characters": 309,
+      "destinationPath": "@/types/superStickerMetadata.generated.ts"
+    },
+    "types/liveChatMessageAuthorDetails.generated.ts": {
+      "lines": 6,
+      "characters": 723,
+      "destinationPath": "@/types/liveChatMessageAuthorDetails.generated.ts"
+    },
+    "types/error.generated.ts": {
+      "lines": 6,
+      "characters": 523,
+      "destinationPath": "@/types/error.generated.ts"
+    }
+  },
+  "previews": {},
+  "mappings": {},
+  "results": {
+    "aa1d50e3b53a5785": {
+      "generate": {
+        "@skmtc/gen-basic-sdk": {
+          "/liveChatMessages": {
+            "get": "success",
+            "post": "success"
+          },
+          "/liveChatMessages/{id}": {
+            "delete": "success"
+          },
+          "/liveChatMessages/transition": {
+            "post": "success"
+          }
+        },
+        "@skmtc/gen-zod": {
+          "LiveChatMessage": "success",
+          "LiveChatMessageSnippet": "success",
+          "LiveChatMessageAuthorDetails": "success",
+          "LiveChatTextMessageDetails": "success",
+          "LiveChatSuperChatDetails": "success",
+          "LiveChatMemberMilestoneChatDetails": "success",
+          "LiveChatNewSponsorDetails": "success",
+          "LiveChatUserBannedDetails": "success",
+          "LiveChatMessageDeletedDetails": "success",
+          "LiveChatMessageRetractedDetails": "success",
+          "LiveChatPollDetails": "success",
+          "LiveChatPollDetailsPollMetadata": "success",
+          "LiveChatPollChoice": "success",
+          "LiveChatMembershipGiftingDetails": "success",
+          "LiveChatGiftMembershipReceivedDetails": "success",
+          "LiveChatSuperStickerDetails": "success",
+          "SuperStickerMetadata": "success",
+          "ChannelProfileDetails": "success",
+          "LiveChatMessageListResponse": "success",
+          "PageInfo": "success",
+          "Error": "success"
+        },
+        "@skmtc/gen-typescript": {
+          "LiveChatMessage": "success",
+          "LiveChatMessageSnippet": "success",
+          "LiveChatMessageAuthorDetails": "success",
+          "LiveChatTextMessageDetails": "success",
+          "LiveChatSuperChatDetails": "success",
+          "LiveChatMemberMilestoneChatDetails": "success",
+          "LiveChatNewSponsorDetails": "success",
+          "LiveChatUserBannedDetails": "success",
+          "LiveChatMessageDeletedDetails": "success",
+          "LiveChatMessageRetractedDetails": "success",
+          "LiveChatPollDetails": "success",
+          "LiveChatPollDetailsPollMetadata": "success",
+          "LiveChatPollChoice": "success",
+          "LiveChatMembershipGiftingDetails": "success",
+          "LiveChatGiftMembershipReceivedDetails": "success",
+          "LiveChatSuperStickerDetails": "success",
+          "SuperStickerMetadata": "success",
+          "ChannelProfileDetails": "success",
+          "LiveChatMessageListResponse": "success",
+          "PageInfo": "success",
+          "Error": "success"
+        }
+      },
+      "render": {
+        "@/YouTubeClient.generated.ts": "success",
+        "@/types/liveChatMessageListResponse.generated.ts": "success",
+        "@/types/pageInfo.generated.ts": "success",
+        "@/types/liveChatMessage.generated.ts": "success",
+        "@/types/liveChatMessageSnippet.generated.ts": "success",
+        "@/types/liveChatTextMessageDetails.generated.ts": "success",
+        "@/types/liveChatSuperChatDetails.generated.ts": "success",
+        "@/types/liveChatMemberMilestoneChatDetails.generated.ts": "success",
+        "@/types/liveChatNewSponsorDetails.generated.ts": "success",
+        "@/types/liveChatUserBannedDetails.generated.ts": "success",
+        "@/types/channelProfileDetails.generated.ts": "success",
+        "@/types/liveChatMessageDeletedDetails.generated.ts": "success",
+        "@/types/liveChatMessageRetractedDetails.generated.ts": "success",
+        "@/types/liveChatPollDetails.generated.ts": "success",
+        "@/types/liveChatPollDetailsPollMetadata.generated.ts": "success",
+        "@/types/liveChatPollChoice.generated.ts": "success",
+        "@/types/liveChatMembershipGiftingDetails.generated.ts": "success",
+        "@/types/liveChatGiftMembershipReceivedDetails.generated.ts": "success",
+        "@/types/liveChatSuperStickerDetails.generated.ts": "success",
+        "@/types/superStickerMetadata.generated.ts": "success",
+        "@/types/liveChatMessageAuthorDetails.generated.ts": "success",
+        "@/types/error.generated.ts": "success"
+      }
+    }
+  },
+  "startAt": 1756129575254,
+  "endAt": 1756129575277
+}

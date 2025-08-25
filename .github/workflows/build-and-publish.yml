@@ -46,15 +46,9 @@ jobs:
           echo "Available generation options:"
           deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --help || true
           
-          # Try to generate actual SDK client code
-          echo "Attempting different SDK generation targets..."
-          deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --project=pregnant-tuna-704 --generate --target=client || true
-          echo "Trying basic-sdk target..."
-          deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --project=pregnant-tuna-704 --generate --target=basic-sdk || true
-          echo "Trying sdk target..."
-          deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --project=pregnant-tuna-704 --generate --target=sdk || true
-          echo "Default generation..."
-          deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --project=pregnant-tuna-704 --generate || true
+          # Generate the code generators (not the final SDK)
+          echo "Generating SDK generators..."
+          deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --project=pregnant-tuna-704 --generate
           
           # Create src directory if it doesn't exist
           mkdir -p src
@@ -63,51 +57,82 @@ jobs:
           echo "Available generated directories:"
           find .skmtc/pregnant-tuna-704 -type d -name "gen-*" || echo "No gen- directories found"
           
-          # Check what's in each generated directory
-          echo "Checking gen-zod contents:"
-          if [ -d ".skmtc/pregnant-tuna-704/gen-zod" ]; then
-            find .skmtc/pregnant-tuna-704/gen-zod -name "*.ts" -type f | head -10
-            echo "Sample gen-zod file:"
-            find .skmtc/pregnant-tuna-704/gen-zod -name "*.ts" -type f | head -1 | xargs cat | head -20
-          fi
+          # Run the generated code generators to produce actual client code
+          echo "Running BasicSdk generator to create actual YouTube API client..."
           
-          echo "Checking gen-typescript contents:"
-          if [ -d ".skmtc/pregnant-tuna-704/gen-typescript" ]; then
-            find .skmtc/pregnant-tuna-704/gen-typescript -name "*.ts" -type f | head -10
-          fi
-          
-          # For now, let's try to create our own SDK using gen-zod types
-          if [ -d ".skmtc/pregnant-tuna-704/gen-zod" ]; then
-            echo "Using gen-zod for API types and creating custom SDK"
-            GENERATED_DIR=".skmtc/pregnant-tuna-704/gen-zod"
+          if [ -d ".skmtc/pregnant-tuna-704/gen-basic-sdk" ]; then
+            echo "Found gen-basic-sdk, running generator..."
+            cd .skmtc/pregnant-tuna-704/gen-basic-sdk
+            
+            # Run the generator to produce the actual client code
+            echo "Executing BasicSdk generator..."
+            deno run -A mod.ts > ../../../src/YouTubeClient.generated.ts
+            
+            # Also copy any base classes we might need
+            if [ -f "src/base.ts" ]; then
+              cp src/base.ts ../../../src/SdkClientBase.ts
+            fi
+            
+            cd ../../..
+            echo "Generated client code:"
+            ls -la src/
+            head -20 src/YouTubeClient.generated.ts
           else
-            echo "No suitable generated directory found, failing build"
+            echo "gen-basic-sdk not found, cannot generate client code"
             exit 1
           fi
           
-          echo "Using generated directory: $GENERATED_DIR"
+          # Create index.ts that exports the generated client
+          echo "Creating index.ts..."
+          cat > src/index.ts << 'EOF'
+          // YouTube SDK - Generated from OpenAPI spec using skm.tc
+          export { YouTubeClient } from './YouTubeClient.generated.js';
+          export { SdkClientBase } from './SdkClientBase.js';
+          EOF
           
-          # Copy all TypeScript files, maintaining directory structure
-          if [ -d "$GENERATED_DIR" ]; then
-            # Copy everything first
-            cp -r "$GENERATED_DIR"/* src/
-            
-            # If there's a mod.ts (Deno style), rename it to index.ts
-            if [ -f "src/mod.ts" ]; then
-              echo "Found Deno-style mod.ts, renaming to index.ts"
-              mv src/mod.ts src/index.ts
-            fi
-          fi
-          
-          # List what we have in src now
-          echo "Generated files in src:"
-          find src -type f -name "*.ts" | head -30 || echo "No TypeScript files in src"
+          echo "Final src structure:"
+          find src -type f -name "*.ts" -exec echo "File: {}" \; -exec head -5 {} \;
 
       - name: Verify generated SDK classes
         run: |
-          echo "Checking what SDK classes were generated..."
-          find src -name "*.ts" -type f -exec grep -l "class.*Client\|export.*Client" {} \; || echo "No client classes found"
-          find src -name "*.ts" -type f -exec grep -l "export.*Client\|export class" {} \; | head -5 || echo "No exported classes found"
+          echo "Verifying generated YouTube client..."
+          if [ -f "src/YouTubeClient.generated.ts" ]; then
+            echo "✅ YouTubeClient.generated.ts exists"
+            echo "Checking for class definition:"
+            grep -n "class.*Client\|export.*Client" src/YouTubeClient.generated.ts || echo "No client class found"
+            echo "Checking for API methods:"
+            grep -n "async.*Api\|function.*Api" src/YouTubeClient.generated.ts || echo "No API methods found"
+          else
+            echo "❌ YouTubeClient.generated.ts not found"
+            exit 1
+          fi
+          
+          if [ -f "src/SdkClientBase.ts" ]; then
+            echo "✅ SdkClientBase.ts exists"  
+          else
+            echo "⚠️ SdkClientBase.ts not found, creating minimal version..."
+            cat > src/SdkClientBase.ts << 'EOF'
+          export class SdkClientBase {
+            protected baseUrl: string;
+            protected headers: Record<string, string>;
+            
+            constructor(config: { baseUrl: string; headers?: Record<string, string> }) {
+              this.baseUrl = config.baseUrl;
+              this.headers = config.headers || {};
+            }
+            
+            protected async fetch(url: string, init?: RequestInit) {
+              return fetch(url, {
+                ...init,
+                headers: {
+                  ...this.headers,
+                  ...init?.headers,
+                }
+              });
+            }
+          }
+          EOF
+          fi
 
       - name: Fix import paths
         run: |

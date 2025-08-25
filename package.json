@@ -47,12 +47,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zbimson/youtube-sdk.git"
+    "url": "git+https://github.com/bison-digital/youtube-sdk.git"
   },
   "bugs": {
-    "url": "https://github.com/zbimson/youtube-sdk/issues"
+    "url": "https://github.com/bison-digital/youtube-sdk/issues"
   },
-  "homepage": "https://github.com/zbimson/youtube-sdk#readme",
+  "homepage": "https://github.com/bison-digital/youtube-sdk#readme",
   "dependencies": {
     "zod": "^3.24.1"
   },

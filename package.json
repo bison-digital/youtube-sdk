@@ -25,8 +25,8 @@
     "CHANGELOG.md"
   ],
   "scripts": {
-    "build": "npm run generate && npm run compile",
-    "generate": "deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --project=pregnant-tuna-704 --generate",
+    "build": "npm run compile",
+    "generate": "deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 generators:generate pregnant-tuna-704 .",
     "compile": "tsc && rollup -c",
     "test": "jest",
     "lint": "eslint src/**/*.ts",

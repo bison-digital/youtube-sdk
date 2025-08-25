@@ -92,11 +92,13 @@ jobs:
             cd .skmtc/pregnant-tuna-704/gen-typescript
             echo "Contents of gen-typescript:"
             ls -la
-            # Try to run it and see what happens
-            deno run -A mod.ts > ../../../src/generated-output.ts 2>&1 || true
+            # The mod.ts file is just the TypeScript generator entry, not the SDK generator
+            # We need to find or create the actual SDK client
+            echo "gen-typescript is a code generator tool, not SDK - skipping"
             cd ../../..
-            echo "Generated output:"
-            cat src/generated-output.ts | head -30
+            
+            # Remove the error output file
+            rm -f src/generated-output.ts
           else
             echo "No suitable generator found, listing available directories:"
             find .skmtc/pregnant-tuna-704 -type d
@@ -154,6 +156,14 @@ jobs:
           }
           EOF
           fi
+          
+          # Fix the generated client class export syntax
+          echo "Fixing YouTubeClient class export syntax..."
+          if [ -f "src/YouTubeClient.generated.ts" ]; then
+            # Convert "export const YouTubeClient = class YouTubeClient" to "export class YouTubeClient"
+            sed -i 's/export const YouTubeClient = class YouTubeClient/export class YouTubeClient/g' src/YouTubeClient.generated.ts
+            echo "Fixed class export syntax"
+          fi
 
       - name: Fix import paths
         run: |
@@ -175,6 +185,10 @@ jobs:
 
       - name: Build package
         run: |
+          # Remove any error output files that might have been created
+          rm -f src/generated-output.ts
+          
+          # Build the TypeScript package
           npx tsc
           npx rollup -c
 

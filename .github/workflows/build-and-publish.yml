@@ -50,73 +50,65 @@ jobs:
           echo "Available generated directories:"
           find .skmtc/pregnant-tuna-704 -type d -name "gen-*" || echo "No gen- directories found"
           
-          # Check for different possible generation paths
+          # Look for generated TypeScript code (try different paths)
+          GENERATED_DIR=""
           if [ -d ".skmtc/pregnant-tuna-704/gen-basic-sdk" ]; then
-            echo "Found gen-basic-sdk, copying..."
-            cp -r .skmtc/pregnant-tuna-704/gen-basic-sdk/* src/
+            GENERATED_DIR=".skmtc/pregnant-tuna-704/gen-basic-sdk"
+            echo "Found gen-basic-sdk"
           elif [ -d ".skmtc/pregnant-tuna-704/gen-typescript" ]; then
-            echo "Found gen-typescript, copying..."
-            cp -r .skmtc/pregnant-tuna-704/gen-typescript/* src/
+            GENERATED_DIR=".skmtc/pregnant-tuna-704/gen-typescript"
+            echo "Found gen-typescript"
           else
             echo "No generated SDK directory found, listing all contents:"
-            find .skmtc/pregnant-tuna-704 -type f -name "*.ts" || echo "No TypeScript files found"
+            find .skmtc/pregnant-tuna-704 -name "*.ts" -type f || echo "No TypeScript files found"
+            exit 1
+          fi
+          
+          echo "Using generated directory: $GENERATED_DIR"
+          
+          # Copy all TypeScript files, maintaining directory structure
+          if [ -d "$GENERATED_DIR" ]; then
+            # Copy everything first
+            cp -r "$GENERATED_DIR"/* src/
+            
+            # If there's a mod.ts (Deno style), rename it to index.ts
+            if [ -f "src/mod.ts" ]; then
+              echo "Found Deno-style mod.ts, renaming to index.ts"
+              mv src/mod.ts src/index.ts
+            fi
           fi
           
           # List what we have in src now
           echo "Generated files in src:"
-          find src -type f -name "*.ts" | head -20 || echo "No TypeScript files in src"
+          find src -type f -name "*.ts" | head -30 || echo "No TypeScript files in src"
 
-      - name: Create index.ts
+      - name: Verify generated code
         run: |
-          echo "Creating dynamic index.ts based on generated files..."
-          
-          # Start the index.ts file
-          cat > src/index.ts << 'EOF'
-          // Auto-generated exports for YouTube SDK
-          EOF
-          
-          # Find and export the main client classes
-          if [ -f "src/YouTubeClient.generated.ts" ]; then
-            echo "export { YouTubeClient } from './YouTubeClient.generated.js';" >> src/index.ts
+          echo "Checking generated index.ts:"
+          if [ -f "src/index.ts" ]; then
+            cat src/index.ts
+          else
+            echo "No index.ts found!"
+            exit 1
           fi
-          
-          if [ -f "src/SdkClientBase.ts" ]; then
-            echo "export { SdkClientBase } from './SdkClientBase.js';" >> src/index.ts
-          fi
-          
-          # Add a blank line
-          echo "" >> src/index.ts
-          echo "// Export all generated types" >> src/index.ts
-          
-          # Dynamically export all types from types directory
-          if [ -d "src/types" ]; then
-            for file in src/types/*.ts; do
-              if [ -f "$file" ]; then
-                filename=$(basename "$file" .ts)
-                echo "export * from './types/${filename}.js';" >> src/index.ts
-              fi
-            done
-          fi
-          
-          # If no types directory, try to export any .generated.ts files
-          if [ ! -d "src/types" ]; then
-            for file in src/*.generated.ts; do
-              if [ -f "$file" ]; then
-                filename=$(basename "$file" .ts)
-                echo "export * from './${filename}.js';" >> src/index.ts
-              fi
-            done
-          fi
-          
-          # Show what we created
-          echo "Created index.ts:"
-          cat src/index.ts
 
       - name: Fix import paths
         run: |
           # Fix Deno-style imports to Node.js-style imports
+          echo "Fixing import paths for Node.js compatibility..."
+          
+          # Convert ./src/ paths to relative paths
+          find src -name "*.ts" -exec sed -i 's|from '"'"'./src/|from '"'"'./|g' {} \;
+          
+          # Convert .ts extensions to .js for Node.js
+          find src -name "*.ts" -exec sed -i 's|\.ts'"'"';|.js'"'"';|g' {} \;
+          
+          # Convert @/ aliases to relative paths  
           find src -name "*.ts" -exec sed -i 's|from '"'"'@/|from '"'"'./|g' {} \;
-          find src -name "*.ts" -exec sed -i 's|\.ts'"'"'|.js'"'"'|g' {} \;
+          
+          # Show what the imports look like now
+          echo "Sample of fixed imports:"
+          grep -n "from '" src/index.ts | head -5 || echo "No imports found in index.ts"
 
       - name: Build package
         run: |

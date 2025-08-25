@@ -52,12 +52,25 @@ jobs:
           echo "Generated files:"
           find src -name "*.ts" -type f | head -10
 
+      - name: Check generated files
+        run: |
+          echo "✅ Generated files:"
+          ls -la src/
+          echo ""
+          echo "Generated client (first 10 lines):"
+          head -10 src/YouTubeClient.generated.ts
+          echo ""
+          echo "Generated types:"
+          ls -la src/types/ | grep "\.generated\." | head -5
+          
       - name: Verify generated SDK
         run: |
           echo "Verifying generated files..."
           if [ -d "src" ] && [ "$(ls -A src 2>/dev/null)" ]; then
             echo "✅ src directory contains generated files"
             ls -la src/
+            echo "Generated client methods:"
+            grep -n "async.*Api" src/YouTubeClient.generated.ts | head -5 || echo "No API methods found"
           else
             echo "❌ No files generated in src directory"
             exit 1

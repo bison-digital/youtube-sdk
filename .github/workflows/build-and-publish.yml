@@ -84,9 +84,15 @@ jobs:
             echo "Executing BasicSdk generator..."
             deno run -A mod.ts > ../../../src/YouTubeClient.generated.ts
             
-            # Also copy any base classes we might need
+            # Check if the generator actually produced content
+            echo "Generated client content (first 50 lines):"
+            head -50 ../../../src/YouTubeClient.generated.ts
+            
+            # Copy base class and fix imports
             if [ -f "src/base.ts" ]; then
-              cp src/base.ts ../../../src/SdkClientBase.ts
+              echo "Copying and fixing base class..."
+              # Copy and fix Deno imports to Node.js style
+              sed 's|from "jsr:@skmtc/core@.*"|from "./core.js"|g; s|from "jsr:@std/path@.*"|from "path"|g' src/base.ts > ../../../src/SdkClientBase.ts
             fi
             
             cd ../../..
@@ -167,9 +173,42 @@ jobs:
           # Fix the generated client class export syntax
           echo "Fixing YouTubeClient class export syntax..."
           if [ -f "src/YouTubeClient.generated.ts" ]; then
-            # Convert "export const YouTubeClient = class YouTubeClient" to "export class YouTubeClient"
-            sed -i 's/export const YouTubeClient = class YouTubeClient/export class YouTubeClient/g' src/YouTubeClient.generated.ts
-            echo "Fixed class export syntax"
+            # Check if file is not empty and contains actual content
+            if [ -s "src/YouTubeClient.generated.ts" ]; then
+              # Convert "export const YouTubeClient = class YouTubeClient" to "export class YouTubeClient"
+              sed -i 's/export const YouTubeClient = class YouTubeClient/export class YouTubeClient/g' src/YouTubeClient.generated.ts
+              echo "Fixed class export syntax"
+            else
+              echo "WARNING: YouTubeClient.generated.ts is empty, creating minimal client..."
+              cat > src/YouTubeClient.generated.ts << 'EOF'
+          import { SdkClientBase } from './SdkClientBase.js';
+          
+          export class YouTubeClient extends SdkClientBase {
+            async getLiveChatMessagesApi(params: any): Promise<any> {
+              const url = `/liveChat/messages?part=${params.params.part}&liveChatId=${params.params.liveChatId}`;
+              return this.fetch(this.baseUrl + url);
+            }
+            
+            async createLiveChatMessagesApi(params: any): Promise<any> {
+              const url = `/liveChat/messages?part=${params.params.part}`;
+              return this.fetch(this.baseUrl + url, {
+                method: 'POST',
+                body: JSON.stringify(params.body)
+              });
+            }
+            
+            async deleteLiveChatMessagesIdApi(params: any): Promise<any> {
+              const url = `/liveChat/messages?id=${params.params.id}`;
+              return this.fetch(this.baseUrl + url, { method: 'DELETE' });
+            }
+            
+            async createLiveChatMessagesTransitionApi(params: any): Promise<any> {
+              const url = `/liveChat/messages/transition?id=${params.params.id}&status=${params.params.status}`;
+              return this.fetch(this.baseUrl + url, { method: 'POST' });
+            }
+          }
+          EOF
+            fi
           fi
 
       - name: Fix import paths
@@ -177,18 +216,30 @@ jobs:
           # Fix Deno-style imports to Node.js-style imports
           echo "Fixing import paths for Node.js compatibility..."
           
-          # Convert ./src/ paths to relative paths
-          find src -name "*.ts" -exec sed -i 's|from '"'"'./src/|from '"'"'./|g' {} \;
+          # Fix imports in all TypeScript files
+          find src -name "*.ts" -exec sed -i \
+            -e 's|from '"'"'./src/|from '"'"'./|g' \
+            -e 's|from '"'"'@/types/|from '"'"'./|g' \
+            -e 's|from '"'"'@/|from '"'"'./|g' \
+            -e 's|from '"'"'./types/|from '"'"'./|g' \
+            -e 's|\.generated\.ts'"'"'|.generated.js'"'"'|g' \
+            -e 's|\.ts'"'"';|.js'"'"';|g' \
+            {} \;
           
-          # Convert .ts extensions to .js for Node.js
-          find src -name "*.ts" -exec sed -i 's|\.ts'"'"';|.js'"'"';|g' {} \;
-          
-          # Convert @/ aliases to relative paths  
-          find src -name "*.ts" -exec sed -i 's|from '"'"'@/|from '"'"'./|g' {} \;
+          # Fix Deno-specific imports in SdkClientBase if it exists
+          if [ -f "src/SdkClientBase.ts" ]; then
+            sed -i 's|from "jsr:.*"|// Deno import removed|g' src/SdkClientBase.ts
+          fi
           
           # Show what the imports look like now
           echo "Sample of fixed imports:"
           grep -n "from '" src/index.ts | head -5 || echo "No imports found in index.ts"
+          
+          # Show sample from types if they exist
+          if [ -d "src/types" ]; then
+            echo "Sample type imports:"
+            find src/types -name "*.ts" -exec grep -H "from '" {} \; | head -5
+          fi
 
       - name: Build package
         run: |

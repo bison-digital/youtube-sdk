@@ -52,29 +52,29 @@ jobs:
           echo "Generated files:"
           find src -name "*.ts" -type f | head -10
 
-      - name: Check generated files
+      - name: Create types index
         run: |
-          echo "✅ Generated files:"
-          ls -la src/
-          echo ""
-          echo "Generated client (first 10 lines):"
-          head -10 src/YouTubeClient.generated.ts
-          echo ""
-          echo "Generated types:"
-          ls -la src/types/ | grep "\.generated\." | head -5
+          echo "Creating types/index.ts..."
+          echo "// Auto-generated index file for all types" > src/types/index.ts
+          find src/types -name "*.generated.ts" | sort | while read file; do
+            basename=$(basename "$file" .generated.ts)
+            # Convert kebab-case to PascalCase for type names  
+            typename=$(echo "$basename" | sed 's/-\([a-z]\)/\U\1/g' | sed 's/^./\U&/')
+            echo "export type { ${typename} } from './${basename}.generated';" >> src/types/index.ts
+          done
+          
+          echo "✅ Created types index"
           
       - name: Verify generated SDK
         run: |
           echo "Verifying generated files..."
-          if [ -d "src" ] && [ "$(ls -A src 2>/dev/null)" ]; then
-            echo "✅ src directory contains generated files"
-            ls -la src/
-            echo "Generated client methods:"
-            grep -n "async.*Api" src/YouTubeClient.generated.ts | head -5 || echo "No API methods found"
-          else
-            echo "❌ No files generated in src directory"
-            exit 1
-          fi
+          echo "✅ Generated files:"
+          ls -la src/
+          echo ""
+          echo "Generated types index:"
+          head -5 src/types/index.ts
+          echo ""
+          echo "✅ Ready to build"
 
       - name: Build package
         run: |

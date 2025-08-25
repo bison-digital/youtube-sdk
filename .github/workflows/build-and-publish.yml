@@ -94,7 +94,14 @@ jobs:
           # Add test command when tests are available
           echo "No tests configured yet"
 
-      - name: Publish package
+      - name: Publish to NPM (on release)
+        if: github.event_name == 'release'
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish to JSR (on release)
+        if: github.event_name == 'release'
         run: npx jsr publish
 
       - name: Upload build artifacts

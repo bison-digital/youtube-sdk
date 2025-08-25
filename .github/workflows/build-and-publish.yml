@@ -17,6 +17,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      id-token: write
 
     steps:
       - name: Checkout repository
@@ -93,11 +94,8 @@ jobs:
           # Add test command when tests are available
           echo "No tests configured yet"
 
-      - name: Publish to NPM (on release)
-        if: github.event_name == 'release'
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish package
+        run: npx jsr publish
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4

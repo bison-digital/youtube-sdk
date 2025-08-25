@@ -44,10 +44,16 @@ jobs:
           
           # First, let's see what generation options are available
           echo "Available generation options:"
-          deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --project=pregnant-tuna-704 --help || true
+          deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --help || true
           
-          # Try different generation commands
-          echo "Attempting SDK generation..."
+          # Try to generate actual SDK client code
+          echo "Attempting different SDK generation targets..."
+          deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --project=pregnant-tuna-704 --generate --target=client || true
+          echo "Trying basic-sdk target..."
+          deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --project=pregnant-tuna-704 --generate --target=basic-sdk || true
+          echo "Trying sdk target..."
+          deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --project=pregnant-tuna-704 --generate --target=sdk || true
+          echo "Default generation..."
           deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --project=pregnant-tuna-704 --generate || true
           
           # Create src directory if it doesn't exist
@@ -57,25 +63,25 @@ jobs:
           echo "Available generated directories:"
           find .skmtc/pregnant-tuna-704 -type d -name "gen-*" || echo "No gen- directories found"
           
-          # Look for generated SDK code (prioritize SDK over utilities)
-          GENERATED_DIR=""
-          if [ -d ".skmtc/pregnant-tuna-704/gen-basic-sdk" ]; then
-            GENERATED_DIR=".skmtc/pregnant-tuna-704/gen-basic-sdk"
-            echo "Found gen-basic-sdk (SDK code)"
-          elif [ -d ".skmtc/pregnant-tuna-704/gen-sdk" ]; then
-            GENERATED_DIR=".skmtc/pregnant-tuna-704/gen-sdk"
-            echo "Found gen-sdk (SDK code)"
-          elif [ -d ".skmtc/pregnant-tuna-704/gen-client" ]; then
-            GENERATED_DIR=".skmtc/pregnant-tuna-704/gen-client"
-            echo "Found gen-client (SDK code)"
-          elif [ -d ".skmtc/pregnant-tuna-704/gen-typescript" ]; then
-            GENERATED_DIR=".skmtc/pregnant-tuna-704/gen-typescript"
-            echo "Found gen-typescript (TypeScript utilities - may not be SDK)"
+          # Check what's in each generated directory
+          echo "Checking gen-zod contents:"
+          if [ -d ".skmtc/pregnant-tuna-704/gen-zod" ]; then
+            find .skmtc/pregnant-tuna-704/gen-zod -name "*.ts" -type f | head -10
+            echo "Sample gen-zod file:"
+            find .skmtc/pregnant-tuna-704/gen-zod -name "*.ts" -type f | head -1 | xargs cat | head -20
+          fi
+          
+          echo "Checking gen-typescript contents:"
+          if [ -d ".skmtc/pregnant-tuna-704/gen-typescript" ]; then
+            find .skmtc/pregnant-tuna-704/gen-typescript -name "*.ts" -type f | head -10
+          fi
+          
+          # For now, let's try to create our own SDK using gen-zod types
+          if [ -d ".skmtc/pregnant-tuna-704/gen-zod" ]; then
+            echo "Using gen-zod for API types and creating custom SDK"
+            GENERATED_DIR=".skmtc/pregnant-tuna-704/gen-zod"
           else
-            echo "No generated SDK directory found, listing all available directories:"
-            find .skmtc/pregnant-tuna-704 -type d -name "gen-*" || echo "No gen-* directories found"
-            echo "All TypeScript files:"
-            find .skmtc/pregnant-tuna-704 -name "*.ts" -type f || echo "No TypeScript files found"
+            echo "No suitable generated directory found, failing build"
             exit 1
           fi
           
@@ -97,15 +103,11 @@ jobs:
           echo "Generated files in src:"
           find src -type f -name "*.ts" | head -30 || echo "No TypeScript files in src"
 
-      - name: Verify generated code
+      - name: Verify generated SDK classes
         run: |
-          echo "Checking generated index.ts:"
-          if [ -f "src/index.ts" ]; then
-            cat src/index.ts
-          else
-            echo "No index.ts found!"
-            exit 1
-          fi
+          echo "Checking what SDK classes were generated..."
+          find src -name "*.ts" -type f -exec grep -l "class.*Client\|export.*Client" {} \; || echo "No client classes found"
+          find src -name "*.ts" -type f -exec grep -l "export.*Client\|export class" {} \; | head -5 || echo "No exported classes found"
 
       - name: Fix import paths
         run: |

@@ -1,4 +1,5 @@
 import typescript from 'rollup-plugin-typescript2';
+import ts from 'typescript';
 
 export default [
   {
@@ -17,7 +18,7 @@ export default [
     ],
     plugins: [
       typescript({
-        typescript: require('typescript'),
+        typescript: ts,
         clean: true
       })
     ],

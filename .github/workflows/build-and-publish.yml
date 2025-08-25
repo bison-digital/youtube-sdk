@@ -52,18 +52,24 @@ jobs:
           echo "Generated files:"
           find src -name "*.ts" -type f | head -10
 
-      - name: Create types index
+      - name: Fix imports for Node.js
         run: |
+          echo "Fixing .ts extensions to .js in import statements..."
+          
+          # Fix .ts extensions to .js in all generated files
+          find src -name "*.generated.ts" -exec sed -i "s/from '\([^']*\)\.ts'/from '\1.js'/g" {} \;
+          
+          # Create types/index.ts to export all generated types
           echo "Creating types/index.ts..."
           echo "// Auto-generated index file for all types" > src/types/index.ts
           find src/types -name "*.generated.ts" | sort | while read file; do
             basename=$(basename "$file" .generated.ts)
             # Convert kebab-case to PascalCase for type names  
             typename=$(echo "$basename" | sed 's/-\([a-z]\)/\U\1/g' | sed 's/^./\U&/')
-            echo "export type { ${typename} } from './${basename}.generated';" >> src/types/index.ts
+            echo "export type { ${typename} } from './${basename}.generated.js';" >> src/types/index.ts
           done
           
-          echo "✅ Created types index"
+          echo "✅ Fixed imports for Node.js compilation"
           
       - name: Verify generated SDK
         run: |

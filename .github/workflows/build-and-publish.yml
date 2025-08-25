@@ -46,45 +46,71 @@ jobs:
           # Create src directory if it doesn't exist
           mkdir -p src
           
-          # Copy generated files from .skmtc to src (adjust path as needed)
+          # List what was generated for debugging
+          echo "Available generated directories:"
+          find .skmtc/pregnant-tuna-704 -type d -name "gen-*" || echo "No gen- directories found"
+          
+          # Check for different possible generation paths
           if [ -d ".skmtc/pregnant-tuna-704/gen-basic-sdk" ]; then
+            echo "Found gen-basic-sdk, copying..."
             cp -r .skmtc/pregnant-tuna-704/gen-basic-sdk/* src/
+          elif [ -d ".skmtc/pregnant-tuna-704/gen-typescript" ]; then
+            echo "Found gen-typescript, copying..."
+            cp -r .skmtc/pregnant-tuna-704/gen-typescript/* src/
+          else
+            echo "No generated SDK directory found, listing all contents:"
+            find .skmtc/pregnant-tuna-704 -type f -name "*.ts" || echo "No TypeScript files found"
           fi
           
-          # List generated files for debugging
-          echo "Generated files:"
-          find src -type f -name "*.ts" | head -20
+          # List what we have in src now
+          echo "Generated files in src:"
+          find src -type f -name "*.ts" | head -20 || echo "No TypeScript files in src"
 
       - name: Create index.ts
         run: |
-          cat > src/index.ts << 'EOF'
-          // Main exports for YouTube SDK
-          export { YouTubeClient } from './YouTubeClient.generated.js';
-          export { SdkClientBase } from './SdkClientBase.js';
+          echo "Creating dynamic index.ts based on generated files..."
           
-          // Export all types
-          export * from './types/liveChatMessage.generated.js';
-          export * from './types/liveChatMessageListResponse.generated.js';
-          export * from './types/liveChatMessageAuthorDetails.generated.js';
-          export * from './types/liveChatMessageSnippet.generated.js';
-          export * from './types/liveChatTextMessageDetails.generated.js';
-          export * from './types/liveChatSuperChatDetails.generated.js';
-          export * from './types/liveChatSuperStickerDetails.generated.js';
-          export * from './types/liveChatMemberMilestoneChatDetails.generated.js';
-          export * from './types/liveChatNewSponsorDetails.generated.js';
-          export * from './types/liveChatMembershipGiftingDetails.generated.js';
-          export * from './types/liveChatGiftMembershipReceivedDetails.generated.js';
-          export * from './types/liveChatUserBannedDetails.generated.js';
-          export * from './types/liveChatMessageDeletedDetails.generated.js';
-          export * from './types/liveChatMessageRetractedDetails.generated.js';
-          export * from './types/liveChatPollDetails.generated.js';
-          export * from './types/liveChatPollChoice.generated.js';
-          export * from './types/liveChatPollDetailsPollMetadata.generated.js';
-          export * from './types/channelProfileDetails.generated.js';
-          export * from './types/pageInfo.generated.js';
-          export * from './types/superStickerMetadata.generated.js';
-          export * from './types/error.generated.js';
+          # Start the index.ts file
+          cat > src/index.ts << 'EOF'
+          // Auto-generated exports for YouTube SDK
           EOF
+          
+          # Find and export the main client classes
+          if [ -f "src/YouTubeClient.generated.ts" ]; then
+            echo "export { YouTubeClient } from './YouTubeClient.generated.js';" >> src/index.ts
+          fi
+          
+          if [ -f "src/SdkClientBase.ts" ]; then
+            echo "export { SdkClientBase } from './SdkClientBase.js';" >> src/index.ts
+          fi
+          
+          # Add a blank line
+          echo "" >> src/index.ts
+          echo "// Export all generated types" >> src/index.ts
+          
+          # Dynamically export all types from types directory
+          if [ -d "src/types" ]; then
+            for file in src/types/*.ts; do
+              if [ -f "$file" ]; then
+                filename=$(basename "$file" .ts)
+                echo "export * from './types/${filename}.js';" >> src/index.ts
+              fi
+            done
+          fi
+          
+          # If no types directory, try to export any .generated.ts files
+          if [ ! -d "src/types" ]; then
+            for file in src/*.generated.ts; do
+              if [ -f "$file" ]; then
+                filename=$(basename "$file" .ts)
+                echo "export * from './${filename}.js';" >> src/index.ts
+              fi
+            done
+          fi
+          
+          # Show what we created
+          echo "Created index.ts:"
+          cat src/index.ts
 
       - name: Fix import paths
         run: |

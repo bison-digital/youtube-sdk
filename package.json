@@ -1,6 +1,7 @@
 {
   "name": "@bison.digital/youtube-sdk",
   "version": "1.0.0",
+  "type": "module",
   "description": "Generated TypeScript SDK for YouTube Data API v3 with Live Chat support",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

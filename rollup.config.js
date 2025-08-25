@@ -22,6 +22,6 @@ export default [
         clean: true
       })
     ],
-    external: ['node-fetch']
+    external: ['node-fetch', 'zod']
   }
 ];

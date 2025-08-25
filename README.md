@@ -1,25 +1,25 @@
 # YouTube SDK
 
-A TypeScript SDK for the YouTube Data API v3 with comprehensive Live Chat support. This package is automatically generated from the OpenAPI specification and published via GitHub Actions.
+A TypeScript SDK for the YouTube Data API v3 with comprehensive Live Chat support. This package is **automatically generated from the OpenAPI specification using [skm.tc](https://skm.tc)** and published via GitHub Actions.
 
 ## Features
 
+- 🔄 **Auto-generated with [skm.tc](https://skm.tc)** - Always up-to-date with the latest API spec
 - 🚀 **TypeScript-first** - Full type safety and IntelliSense support
 - 📺 **YouTube Live Chat** - Complete support for live chat operations
-- 🔄 **Auto-generated** - Always up-to-date with the latest API spec
 - 🌐 **Universal** - Works in Node.js, browsers, and Cloudflare Workers
 - 📦 **Tree-shakeable** - Import only what you need
 
 ## Installation
 
 ```bash
-npm install @zbimson/youtube-sdk
+npm install @bison.digital/youtube-sdk
 ```
 
 ## Quick Start
 
 ```typescript
-import { YouTubeClient } from '@zbimson/youtube-sdk';
+import { YouTubeClient } from '@bison.digital/youtube-sdk';
 
 // Initialize the client
 const youtube = new YouTubeClient({
@@ -111,7 +111,7 @@ import type {
   LiveChatSuperChatDetails,
   LiveChatSuperStickerDetails,
   // ... and many more
-} from '@zbimson/youtube-sdk';
+} from '@bison.digital/youtube-sdk';
 ```
 
 ### Common Types
@@ -146,7 +146,7 @@ interface LiveChatMessageListResponse {
 ### Real-time Chat Monitoring
 
 ```typescript
-import { YouTubeClient } from '@zbimson/youtube-sdk';
+import { YouTubeClient } from '@bison.digital/youtube-sdk';
 
 class LiveChatMonitor {
   private client: YouTubeClient;
@@ -206,7 +206,7 @@ monitor.startMonitoring();
 ### Chat Moderation
 
 ```typescript
-import { YouTubeClient } from '@zbimson/youtube-sdk';
+import { YouTubeClient } from '@bison.digital/youtube-sdk';
 
 class ChatModerator {
   private client: YouTubeClient;
@@ -234,7 +234,7 @@ class ChatModerator {
 ### Super Chat Handling
 
 ```typescript
-import { YouTubeClient, LiveChatMessage } from '@zbimson/youtube-sdk';
+import { YouTubeClient, LiveChatMessage } from '@bison.digital/youtube-sdk';
 
 function handleSuperChat(message: LiveChatMessage) {
   if (message.snippet.type === 'superChatEvent') {
@@ -261,7 +261,7 @@ function handleHighValueDonation(author: string, amount: string, message: string
 The SDK includes comprehensive error types:
 
 ```typescript
-import { YouTubeClient } from '@zbimson/youtube-sdk';
+import { YouTubeClient } from '@bison.digital/youtube-sdk';
 
 try {
   const messages = await youtube.getLiveChatMessagesApi({
@@ -305,7 +305,7 @@ const youtube = new YouTubeClient({
 For operations requiring user authentication, you'll need to extend the base client:
 
 ```typescript
-import { SdkClientBase } from '@zbimson/youtube-sdk';
+import { SdkClientBase } from '@bison.digital/youtube-sdk';
 
 class AuthenticatedYouTubeClient extends SdkClientBase {
   constructor(accessToken: string) {

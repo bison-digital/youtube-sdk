@@ -32,10 +32,10 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: 'https://registry.npmjs.org'
-          scope: '@zbimson'
+          scope: '@bison.digital'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Generate SDK code
         run: |

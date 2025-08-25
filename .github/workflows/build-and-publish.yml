@@ -39,8 +39,15 @@ jobs:
 
       - name: Generate SDK code
         run: |
-          # Run the SKMTC CLI to generate code
-          echo "Generating SDK code from OpenAPI spec..."
+          # Run the SKMTC CLI to generate SDK code (not just TypeScript utilities)
+          echo "Generating YouTube SDK from OpenAPI spec..."
+          
+          # First, let's see what generation options are available
+          echo "Available generation options:"
+          deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --project=pregnant-tuna-704 --help || true
+          
+          # Try different generation commands
+          echo "Attempting SDK generation..."
           deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --project=pregnant-tuna-704 --generate || true
           
           # Create src directory if it doesn't exist
@@ -50,16 +57,24 @@ jobs:
           echo "Available generated directories:"
           find .skmtc/pregnant-tuna-704 -type d -name "gen-*" || echo "No gen- directories found"
           
-          # Look for generated TypeScript code (try different paths)
+          # Look for generated SDK code (prioritize SDK over utilities)
           GENERATED_DIR=""
           if [ -d ".skmtc/pregnant-tuna-704/gen-basic-sdk" ]; then
             GENERATED_DIR=".skmtc/pregnant-tuna-704/gen-basic-sdk"
-            echo "Found gen-basic-sdk"
+            echo "Found gen-basic-sdk (SDK code)"
+          elif [ -d ".skmtc/pregnant-tuna-704/gen-sdk" ]; then
+            GENERATED_DIR=".skmtc/pregnant-tuna-704/gen-sdk"
+            echo "Found gen-sdk (SDK code)"
+          elif [ -d ".skmtc/pregnant-tuna-704/gen-client" ]; then
+            GENERATED_DIR=".skmtc/pregnant-tuna-704/gen-client"
+            echo "Found gen-client (SDK code)"
           elif [ -d ".skmtc/pregnant-tuna-704/gen-typescript" ]; then
             GENERATED_DIR=".skmtc/pregnant-tuna-704/gen-typescript"
-            echo "Found gen-typescript"
+            echo "Found gen-typescript (TypeScript utilities - may not be SDK)"
           else
-            echo "No generated SDK directory found, listing all contents:"
+            echo "No generated SDK directory found, listing all available directories:"
+            find .skmtc/pregnant-tuna-704 -type d -name "gen-*" || echo "No gen-* directories found"
+            echo "All TypeScript files:"
             find .skmtc/pregnant-tuna-704 -name "*.ts" -type f || echo "No TypeScript files found"
             exit 1
           fi

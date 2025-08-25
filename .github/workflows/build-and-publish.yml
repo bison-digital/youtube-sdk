@@ -42,13 +42,9 @@ jobs:
           # Run the SKMTC CLI to generate SDK code (not just TypeScript utilities)
           echo "Generating YouTube SDK from OpenAPI spec..."
           
-          # First, let's see what generation options are available
-          echo "Available generation options:"
-          deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --help || true
-          
-          # Generate the code generators (not the final SDK)
-          echo "Generating SDK generators..."
-          deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 --project=pregnant-tuna-704 --generate
+          # Generate artifacts using the correct CLI command
+          echo "Generating SDK artifacts..."
+          deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 generators:generate pregnant-tuna-704 .
           
           # Create src directory if it doesn't exist
           mkdir -p src

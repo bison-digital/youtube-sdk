@@ -2,7 +2,8 @@
   "imports": {
     "@skmtc/gen-basic-sdk": "./gen-basic-sdk/mod.ts",
     "@skmtc/gen-zod": "./gen-zod/mod.ts",
-    "@skmtc/gen-typescript": "./gen-typescript/mod.ts"
+    "@skmtc/gen-typescript": "./gen-typescript/mod.ts",
+    "tiny-invariant": "npm:tiny-invariant@1.3.3"
   },
   "workspace": [
     "./gen-basic-sdk",

@@ -27,6 +27,7 @@ export class Route extends ContentBase {
   queryArgs: ListObject<string>
   hasBody: boolean = false
   argsTypeName: string
+  baseUrl: string
 
   constructor({ context, operation, destinationPath }: RouteArgs) {
     super({ context })
@@ -40,6 +41,8 @@ export class Route extends ContentBase {
     const responseSchema = operation.toSuccessResponse()?.resolve().toSchema()
     const pathEntries = operation.toParams(['path']).map(({ name, schema }) => [name, schema])
     const queryEntries = operation.toParams(['query']).map(({ name, schema }) => [name, schema])
+
+    this.baseUrl = context.oasDocument.servers[0].url
 
     this.queryArgs = List.toObject(queryEntries.map(([name]) => name))
 
@@ -112,7 +115,7 @@ export class Route extends ContentBase {
     return `async ${this.serviceName}(${this.serviceArgs}: ${
       this.argsTypeName
     }): Promise<${responseType}> {
-    const url = \`${toPathTemplate(this.operation.path)}\${this.toQuery(${this.queryArgs})}\`
+    const url = \`${this.baseUrl}${toPathTemplate(this.operation.path)}\${this.toQuery(${this.queryArgs})}\`
 
 		return this.makeRequest<${responseType}>(url, {
 			method: '${this.operation.method.toUpperCase()}',

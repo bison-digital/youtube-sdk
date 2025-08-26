@@ -1,12 +1,12 @@
 {
-  "deploymentId": "48t4rfm19qc8",
-  "traceId": "2d7dc47b40fe4c8a8670f7ab76dbb649",
-  "spanId": "aa1d50e3b53a5785",
+  "deploymentId": "dd2mnz4k3qxn",
+  "traceId": "2556d7858dce45ac8d33483c5b6aa050",
+  "spanId": "b1866f7829d57314",
   "region": "europe-west2",
   "files": {
     "YouTubeClient.generated.ts": {
       "lines": 51,
-      "characters": 2421,
+      "characters": 2569,
       "destinationPath": "@/YouTubeClient.generated.ts"
     },
     "types/liveChatMessageListResponse.generated.ts": {
@@ -118,7 +118,7 @@
   "previews": {},
   "mappings": {},
   "results": {
-    "aa1d50e3b53a5785": {
+    "b1866f7829d57314": {
       "generate": {
         "@skmtc/gen-basic-sdk": {
           "/liveChatMessages": {
@@ -205,6 +205,6 @@
       }
     }
   },
-  "startAt": 1756129575254,
-  "endAt": 1756129575277
+  "startAt": 1756233608801,
+  "endAt": 1756233608853
 }

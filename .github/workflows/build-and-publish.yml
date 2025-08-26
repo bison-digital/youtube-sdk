@@ -47,7 +47,7 @@ jobs:
           rm -f .skmtc/pregnant-tuna-704/gen-basic-sdk/deno.lock
           
           # Run the SKMTC CLI to generate SDK code
-          deno run -A --unstable-kv jsr:@skmtc/cli generators:generate pregnant-tuna-704 .
+          deno run -A --unstable-kv jsr:@skmtc/cli generators:generate moral-termite-562 .
           
           echo "Generator completed successfully!"
           echo "Generated files:"

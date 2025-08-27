@@ -88,7 +88,7 @@ export class SdkClientBase {
 
       if (!retryResponse.ok) {
         const error = await retryResponse.text()
-        throw new Error(`YouTube API error: ${error}`)
+        throw new Error(`YouTube API error (${retryResponse.status} ${retryResponse.statusText}): ${error}`)
       }
 
       return retryResponse.json()
@@ -96,7 +96,7 @@ export class SdkClientBase {
 
     if (!response.ok) {
       const error = await response.text()
-      throw new Error(`YouTube API error: ${error}`)
+      throw new Error(`YouTube API error (${response.status} ${response.statusText}): ${error}`)
     }
 
     return response.json()

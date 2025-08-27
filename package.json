@@ -28,7 +28,11 @@
     "build": "npm run compile",
     "generate": "deno run -A --unstable-kv jsr:@skmtc/cli@^0.0.153 generators:generate pregnant-tuna-704 .",
     "compile": "tsc && rollup -c",
-    "test": "jest",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:ui": "vitest --ui",
+    "test:spec": "vitest run tests/spec-validation.test.ts",
+    "test:integration": "vitest run tests/integration.test.ts",
     "lint": "eslint src/**/*.ts",
     "format": "prettier --write src/**/*.ts",
     "clean": "rimraf dist/",
@@ -57,16 +61,22 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
+    "@vitest/ui": "^3.2.4",
+    "dotenv": "^17.2.1",
     "eslint": "^8.0.0",
     "jest": "^29.0.0",
+    "js-yaml": "^4.1.0",
     "prettier": "^3.0.0",
     "rimraf": "^5.0.0",
     "rollup": "^4.0.0",
     "rollup-plugin-typescript2": "^0.36.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "vitest": "^3.2.4",
+    "yaml": "^2.8.1"
   },
   "peerDependencies": {
     "node-fetch": "^3.0.0"

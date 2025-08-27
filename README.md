@@ -319,6 +319,64 @@ class AuthenticatedYouTubeClient extends SdkClientBase {
 }
 ```
 
+## Testing
+
+This SDK includes a comprehensive test harness to validate both the OpenAPI spec compliance and real API functionality.
+
+### Setup Test Environment
+
+1. **Install dependencies:**
+   ```bash
+   pnpm install
+   ```
+
+2. **Create environment file:**
+   ```bash
+   cp .env.example .env
+   ```
+
+3. **Configure your YouTube API credentials in `.env`:**
+   ```env
+   YOUTUBE_CLIENT_ID=your_client_id_here
+   YOUTUBE_CLIENT_SECRET=your_client_secret_here
+   YOUTUBE_ACCESS_TOKEN=your_access_token_here
+   YOUTUBE_REFRESH_TOKEN=your_refresh_token_here
+   YOUTUBE_TOKEN_EXPIRES_AT=1234567890000
+   YOUTUBE_LIVE_CHAT_ID=your_test_live_chat_id_here
+   ```
+
+### Running Tests
+
+```bash
+# Run all tests
+pnpm test
+
+# Run spec validation tests only
+pnpm test:spec
+
+# Run integration tests only (requires credentials)
+pnpm test:integration
+
+# Interactive test UI
+pnpm test:ui
+
+# Single test run
+pnpm test:run
+```
+
+### Test Coverage
+
+The test harness covers:
+
+- **SDK Completeness**: Ensures all OpenAPI operations are implemented
+- **Method Signatures**: Validates correct parameter structures  
+- **Real API Calls**: Tests actual YouTube API integration
+- **Error Handling**: Tests API error responses and recovery
+- **Token Management**: Tests OAuth token refresh functionality
+- **Rate Limiting**: Tests graceful handling of API rate limits
+
+Integration tests are automatically skipped if credentials are missing - only spec validation tests will run.
+
 ## Contributing
 
 This package is auto-generated from the OpenAPI specification. To contribute:

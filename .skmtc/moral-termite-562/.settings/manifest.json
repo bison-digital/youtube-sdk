@@ -1,63 +1,448 @@
 {
   "deploymentId": "dd2mnz4k3qxn",
-  "traceId": "2556d7858dce45ac8d33483c5b6aa050",
-  "spanId": "b1866f7829d57314",
+  "traceId": "3589241075f942db98d906c87301106d",
+  "spanId": "8aa33138a575da2d",
   "region": "europe-west2",
   "files": {
     "YouTubeClient.generated.ts": {
-      "lines": 51,
-      "characters": 2569,
+      "lines": 850,
+      "characters": 53377,
       "destinationPath": "@/YouTubeClient.generated.ts"
     },
-    "types/liveChatMessageListResponse.generated.ts": {
+    "types/abuseReport.generated.ts": {
+      "lines": 9,
+      "characters": 632,
+      "destinationPath": "@/types/abuseReport.generated.ts"
+    },
+    "types/abuseType.generated.ts": {
+      "lines": 6,
+      "characters": 143,
+      "destinationPath": "@/types/abuseType.generated.ts"
+    },
+    "types/relatedEntity.generated.ts": {
+      "lines": 7,
+      "characters": 216,
+      "destinationPath": "@/types/relatedEntity.generated.ts"
+    },
+    "types/entity.generated.ts": {
+      "lines": 6,
+      "characters": 255,
+      "destinationPath": "@/types/entity.generated.ts"
+    },
+    "types/activityListResponse.generated.ts": {
+      "lines": 9,
+      "characters": 969,
+      "destinationPath": "@/types/activityListResponse.generated.ts"
+    },
+    "types/activity.generated.ts": {
       "lines": 8,
-      "characters": 816,
-      "destinationPath": "@/types/liveChatMessageListResponse.generated.ts"
+      "characters": 638,
+      "destinationPath": "@/types/activity.generated.ts"
+    },
+    "types/activityContentDetails.generated.ts": {
+      "lines": 17,
+      "characters": 2872,
+      "destinationPath": "@/types/activityContentDetails.generated.ts"
+    },
+    "types/activityContentDetailsBulletin.generated.ts": {
+      "lines": 7,
+      "characters": 278,
+      "destinationPath": "@/types/activityContentDetailsBulletin.generated.ts"
+    },
+    "types/resourceId.generated.ts": {
+      "lines": 6,
+      "characters": 351,
+      "destinationPath": "@/types/resourceId.generated.ts"
+    },
+    "types/activityContentDetailsChannelItem.generated.ts": {
+      "lines": 7,
+      "characters": 284,
+      "destinationPath": "@/types/activityContentDetailsChannelItem.generated.ts"
+    },
+    "types/activityContentDetailsComment.generated.ts": {
+      "lines": 7,
+      "characters": 276,
+      "destinationPath": "@/types/activityContentDetailsComment.generated.ts"
+    },
+    "types/activityContentDetailsFavorite.generated.ts": {
+      "lines": 7,
+      "characters": 278,
+      "destinationPath": "@/types/activityContentDetailsFavorite.generated.ts"
+    },
+    "types/activityContentDetailsLike.generated.ts": {
+      "lines": 7,
+      "characters": 270,
+      "destinationPath": "@/types/activityContentDetailsLike.generated.ts"
+    },
+    "types/activityContentDetailsPlaylistItem.generated.ts": {
+      "lines": 7,
+      "characters": 434,
+      "destinationPath": "@/types/activityContentDetailsPlaylistItem.generated.ts"
+    },
+    "types/activityContentDetailsPromotedItem.generated.ts": {
+      "lines": 6,
+      "characters": 1016,
+      "destinationPath": "@/types/activityContentDetailsPromotedItem.generated.ts"
+    },
+    "types/activityContentDetailsRecommendation.generated.ts": {
+      "lines": 7,
+      "characters": 565,
+      "destinationPath": "@/types/activityContentDetailsRecommendation.generated.ts"
+    },
+    "types/activityContentDetailsSocial.generated.ts": {
+      "lines": 7,
+      "characters": 631,
+      "destinationPath": "@/types/activityContentDetailsSocial.generated.ts"
+    },
+    "types/activityContentDetailsSubscription.generated.ts": {
+      "lines": 7,
+      "characters": 286,
+      "destinationPath": "@/types/activityContentDetailsSubscription.generated.ts"
+    },
+    "types/activityContentDetailsUpload.generated.ts": {
+      "lines": 6,
+      "characters": 191,
+      "destinationPath": "@/types/activityContentDetailsUpload.generated.ts"
+    },
+    "types/activitySnippet.generated.ts": {
+      "lines": 7,
+      "characters": 1095,
+      "destinationPath": "@/types/activitySnippet.generated.ts"
+    },
+    "types/thumbnailDetails.generated.ts": {
+      "lines": 7,
+      "characters": 429,
+      "destinationPath": "@/types/thumbnailDetails.generated.ts"
+    },
+    "types/thumbnail.generated.ts": {
+      "lines": 6,
+      "characters": 279,
+      "destinationPath": "@/types/thumbnail.generated.ts"
     },
     "types/pageInfo.generated.ts": {
       "lines": 6,
       "characters": 251,
       "destinationPath": "@/types/pageInfo.generated.ts"
     },
+    "types/tokenPagination.generated.ts": {
+      "lines": 6,
+      "characters": 147,
+      "destinationPath": "@/types/tokenPagination.generated.ts"
+    },
+    "types/captionListResponse.generated.ts": {
+      "lines": 7,
+      "characters": 495,
+      "destinationPath": "@/types/captionListResponse.generated.ts"
+    },
+    "types/caption.generated.ts": {
+      "lines": 7,
+      "characters": 416,
+      "destinationPath": "@/types/caption.generated.ts"
+    },
+    "types/captionSnippet.generated.ts": {
+      "lines": 6,
+      "characters": 1318,
+      "destinationPath": "@/types/captionSnippet.generated.ts"
+    },
+    "types/channelBannerResource.generated.ts": {
+      "lines": 6,
+      "characters": 285,
+      "destinationPath": "@/types/channelBannerResource.generated.ts"
+    },
+    "types/channelSectionListResponse.generated.ts": {
+      "lines": 7,
+      "characters": 544,
+      "destinationPath": "@/types/channelSectionListResponse.generated.ts"
+    },
+    "types/channelSection.generated.ts": {
+      "lines": 9,
+      "characters": 1036,
+      "destinationPath": "@/types/channelSection.generated.ts"
+    },
+    "types/channelSectionContentDetails.generated.ts": {
+      "lines": 6,
+      "characters": 307,
+      "destinationPath": "@/types/channelSectionContentDetails.generated.ts"
+    },
+    "types/channelSectionSnippet.generated.ts": {
+      "lines": 7,
+      "characters": 1476,
+      "destinationPath": "@/types/channelSectionSnippet.generated.ts"
+    },
+    "types/channelSectionLocalization.generated.ts": {
+      "lines": 6,
+      "characters": 183,
+      "destinationPath": "@/types/channelSectionLocalization.generated.ts"
+    },
+    "types/channelSectionTargeting.generated.ts": {
+      "lines": 6,
+      "characters": 386,
+      "destinationPath": "@/types/channelSectionTargeting.generated.ts"
+    },
+    "types/channelListResponse.generated.ts": {
+      "lines": 9,
+      "characters": 962,
+      "destinationPath": "@/types/channelListResponse.generated.ts"
+    },
+    "types/channel.generated.ts": {
+      "lines": 15,
+      "characters": 2156,
+      "destinationPath": "@/types/channel.generated.ts"
+    },
+    "types/channelAuditDetails.generated.ts": {
+      "lines": 6,
+      "characters": 437,
+      "destinationPath": "@/types/channelAuditDetails.generated.ts"
+    },
+    "types/channelBrandingSettings.generated.ts": {
+      "lines": 10,
+      "characters": 755,
+      "destinationPath": "@/types/channelBrandingSettings.generated.ts"
+    },
+    "types/channelSettings.generated.ts": {
+      "lines": 6,
+      "characters": 1236,
+      "destinationPath": "@/types/channelSettings.generated.ts"
+    },
+    "types/propertyValue.generated.ts": {
+      "lines": 6,
+      "characters": 223,
+      "destinationPath": "@/types/propertyValue.generated.ts"
+    },
+    "types/imageSettings.generated.ts": {
+      "lines": 7,
+      "characters": 2359,
+      "destinationPath": "@/types/imageSettings.generated.ts"
+    },
+    "types/localizedProperty.generated.ts": {
+      "lines": 8,
+      "characters": 453,
+      "destinationPath": "@/types/localizedProperty.generated.ts"
+    },
+    "types/languageTag.generated.ts": {
+      "lines": 6,
+      "characters": 153,
+      "destinationPath": "@/types/languageTag.generated.ts"
+    },
+    "types/localizedString.generated.ts": {
+      "lines": 6,
+      "characters": 227,
+      "destinationPath": "@/types/localizedString.generated.ts"
+    },
+    "types/watchSettings.generated.ts": {
+      "lines": 6,
+      "characters": 331,
+      "destinationPath": "@/types/watchSettings.generated.ts"
+    },
+    "types/channelContentDetails.generated.ts": {
+      "lines": 6,
+      "characters": 525,
+      "destinationPath": "@/types/channelContentDetails.generated.ts"
+    },
+    "types/channelContentOwnerDetails.generated.ts": {
+      "lines": 6,
+      "characters": 289,
+      "destinationPath": "@/types/channelContentOwnerDetails.generated.ts"
+    },
+    "types/channelConversionPings.generated.ts": {
+      "lines": 7,
+      "characters": 323,
+      "destinationPath": "@/types/channelConversionPings.generated.ts"
+    },
+    "types/channelConversionPing.generated.ts": {
+      "lines": 6,
+      "characters": 319,
+      "destinationPath": "@/types/channelConversionPing.generated.ts"
+    },
+    "types/channelSnippet.generated.ts": {
+      "lines": 8,
+      "characters": 904,
+      "destinationPath": "@/types/channelSnippet.generated.ts"
+    },
+    "types/channelLocalization.generated.ts": {
+      "lines": 6,
+      "characters": 241,
+      "destinationPath": "@/types/channelLocalization.generated.ts"
+    },
+    "types/channelStatistics.generated.ts": {
+      "lines": 6,
+      "characters": 491,
+      "destinationPath": "@/types/channelStatistics.generated.ts"
+    },
+    "types/channelStatus.generated.ts": {
+      "lines": 6,
+      "characters": 674,
+      "destinationPath": "@/types/channelStatus.generated.ts"
+    },
+    "types/channelTopicDetails.generated.ts": {
+      "lines": 6,
+      "characters": 301,
+      "destinationPath": "@/types/channelTopicDetails.generated.ts"
+    },
+    "types/commentThreadListResponse.generated.ts": {
+      "lines": 9,
+      "characters": 928,
+      "destinationPath": "@/types/commentThreadListResponse.generated.ts"
+    },
+    "types/commentThread.generated.ts": {
+      "lines": 8,
+      "characters": 649,
+      "destinationPath": "@/types/commentThread.generated.ts"
+    },
+    "types/commentThreadReplies.generated.ts": {
+      "lines": 7,
+      "characters": 255,
+      "destinationPath": "@/types/commentThreadReplies.generated.ts"
+    },
+    "types/comment.generated.ts": {
+      "lines": 7,
+      "characters": 416,
+      "destinationPath": "@/types/comment.generated.ts"
+    },
+    "types/commentSnippet.generated.ts": {
+      "lines": 7,
+      "characters": 1584,
+      "destinationPath": "@/types/commentSnippet.generated.ts"
+    },
+    "types/commentSnippetAuthorChannelId.generated.ts": {
+      "lines": 6,
+      "characters": 189,
+      "destinationPath": "@/types/commentSnippetAuthorChannelId.generated.ts"
+    },
+    "types/commentThreadSnippet.generated.ts": {
+      "lines": 7,
+      "characters": 607,
+      "destinationPath": "@/types/commentThreadSnippet.generated.ts"
+    },
+    "types/commentListResponse.generated.ts": {
+      "lines": 9,
+      "characters": 886,
+      "destinationPath": "@/types/commentListResponse.generated.ts"
+    },
+    "types/i18nLanguageListResponse.generated.ts": {
+      "lines": 7,
+      "characters": 530,
+      "destinationPath": "@/types/i18nLanguageListResponse.generated.ts"
+    },
+    "types/i18nLanguage.generated.ts": {
+      "lines": 7,
+      "characters": 451,
+      "destinationPath": "@/types/i18nLanguage.generated.ts"
+    },
+    "types/i18nLanguageSnippet.generated.ts": {
+      "lines": 6,
+      "characters": 221,
+      "destinationPath": "@/types/i18nLanguageSnippet.generated.ts"
+    },
+    "types/i18nRegionListResponse.generated.ts": {
+      "lines": 7,
+      "characters": 516,
+      "destinationPath": "@/types/i18nRegionListResponse.generated.ts"
+    },
+    "types/i18nRegion.generated.ts": {
+      "lines": 7,
+      "characters": 437,
+      "destinationPath": "@/types/i18nRegion.generated.ts"
+    },
+    "types/i18nRegionSnippet.generated.ts": {
+      "lines": 6,
+      "characters": 217,
+      "destinationPath": "@/types/i18nRegionSnippet.generated.ts"
+    },
+    "types/liveBroadcastListResponse.generated.ts": {
+      "lines": 9,
+      "characters": 1004,
+      "destinationPath": "@/types/liveBroadcastListResponse.generated.ts"
+    },
+    "types/liveBroadcast.generated.ts": {
+      "lines": 10,
+      "characters": 1094,
+      "destinationPath": "@/types/liveBroadcast.generated.ts"
+    },
+    "types/liveBroadcastContentDetails.generated.ts": {
+      "lines": 7,
+      "characters": 2177,
+      "destinationPath": "@/types/liveBroadcastContentDetails.generated.ts"
+    },
+    "types/monitorStreamInfo.generated.ts": {
+      "lines": 6,
+      "characters": 363,
+      "destinationPath": "@/types/monitorStreamInfo.generated.ts"
+    },
+    "types/liveBroadcastSnippet.generated.ts": {
+      "lines": 7,
+      "characters": 1152,
+      "destinationPath": "@/types/liveBroadcastSnippet.generated.ts"
+    },
+    "types/liveBroadcastStatistics.generated.ts": {
+      "lines": 6,
+      "characters": 201,
+      "destinationPath": "@/types/liveBroadcastStatistics.generated.ts"
+    },
+    "types/liveBroadcastStatus.generated.ts": {
+      "lines": 6,
+      "characters": 1189,
+      "destinationPath": "@/types/liveBroadcastStatus.generated.ts"
+    },
+    "types/cuepoint.generated.ts": {
+      "lines": 6,
+      "characters": 566,
+      "destinationPath": "@/types/cuepoint.generated.ts"
+    },
+    "types/liveChatBan.generated.ts": {
+      "lines": 7,
+      "characters": 444,
+      "destinationPath": "@/types/liveChatBan.generated.ts"
+    },
+    "types/liveChatBanSnippet.generated.ts": {
+      "lines": 7,
+      "characters": 641,
+      "destinationPath": "@/types/liveChatBanSnippet.generated.ts"
+    },
+    "types/channelProfileDetails.generated.ts": {
+      "lines": 6,
+      "characters": 403,
+      "destinationPath": "@/types/channelProfileDetails.generated.ts"
+    },
+    "types/liveChatMessageListResponse.generated.ts": {
+      "lines": 9,
+      "characters": 1130,
+      "destinationPath": "@/types/liveChatMessageListResponse.generated.ts"
+    },
     "types/liveChatMessage.generated.ts": {
       "lines": 8,
       "characters": 715,
       "destinationPath": "@/types/liveChatMessage.generated.ts"
     },
+    "types/liveChatMessageAuthorDetails.generated.ts": {
+      "lines": 6,
+      "characters": 723,
+      "destinationPath": "@/types/liveChatMessageAuthorDetails.generated.ts"
+    },
     "types/liveChatMessageSnippet.generated.ts": {
       "lines": 17,
-      "characters": 3901,
+      "characters": 4242,
       "destinationPath": "@/types/liveChatMessageSnippet.generated.ts"
     },
-    "types/liveChatTextMessageDetails.generated.ts": {
+    "types/liveChatFanFundingEventDetails.generated.ts": {
       "lines": 6,
-      "characters": 195,
-      "destinationPath": "@/types/liveChatTextMessageDetails.generated.ts"
+      "characters": 431,
+      "destinationPath": "@/types/liveChatFanFundingEventDetails.generated.ts"
     },
-    "types/liveChatSuperChatDetails.generated.ts": {
+    "types/liveChatGiftMembershipReceivedDetails.generated.ts": {
       "lines": 6,
-      "characters": 483,
-      "destinationPath": "@/types/liveChatSuperChatDetails.generated.ts"
+      "characters": 427,
+      "destinationPath": "@/types/liveChatGiftMembershipReceivedDetails.generated.ts"
     },
     "types/liveChatMemberMilestoneChatDetails.generated.ts": {
       "lines": 6,
       "characters": 369,
       "destinationPath": "@/types/liveChatMemberMilestoneChatDetails.generated.ts"
     },
-    "types/liveChatNewSponsorDetails.generated.ts": {
+    "types/liveChatMembershipGiftingDetails.generated.ts": {
       "lines": 6,
-      "characters": 271,
-      "destinationPath": "@/types/liveChatNewSponsorDetails.generated.ts"
-    },
-    "types/liveChatUserBannedDetails.generated.ts": {
-      "lines": 7,
-      "characters": 530,
-      "destinationPath": "@/types/liveChatUserBannedDetails.generated.ts"
-    },
-    "types/channelProfileDetails.generated.ts": {
-      "lines": 6,
-      "characters": 403,
-      "destinationPath": "@/types/channelProfileDetails.generated.ts"
+      "characters": 329,
+      "destinationPath": "@/types/liveChatMembershipGiftingDetails.generated.ts"
     },
     "types/liveChatMessageDeletedDetails.generated.ts": {
       "lines": 6,
@@ -69,142 +454,1221 @@
       "characters": 219,
       "destinationPath": "@/types/liveChatMessageRetractedDetails.generated.ts"
     },
-    "types/liveChatPollDetails.generated.ts": {
-      "lines": 7,
-      "characters": 450,
-      "destinationPath": "@/types/liveChatPollDetails.generated.ts"
-    },
-    "types/liveChatPollDetailsPollMetadata.generated.ts": {
-      "lines": 7,
-      "characters": 404,
-      "destinationPath": "@/types/liveChatPollDetailsPollMetadata.generated.ts"
-    },
-    "types/liveChatPollChoice.generated.ts": {
+    "types/liveChatNewSponsorDetails.generated.ts": {
       "lines": 6,
-      "characters": 225,
-      "destinationPath": "@/types/liveChatPollChoice.generated.ts"
+      "characters": 271,
+      "destinationPath": "@/types/liveChatNewSponsorDetails.generated.ts"
     },
-    "types/liveChatMembershipGiftingDetails.generated.ts": {
+    "types/liveChatSuperChatDetails.generated.ts": {
       "lines": 6,
-      "characters": 329,
-      "destinationPath": "@/types/liveChatMembershipGiftingDetails.generated.ts"
-    },
-    "types/liveChatGiftMembershipReceivedDetails.generated.ts": {
-      "lines": 6,
-      "characters": 427,
-      "destinationPath": "@/types/liveChatGiftMembershipReceivedDetails.generated.ts"
+      "characters": 483,
+      "destinationPath": "@/types/liveChatSuperChatDetails.generated.ts"
     },
     "types/liveChatSuperStickerDetails.generated.ts": {
       "lines": 7,
-      "characters": 570,
+      "characters": 634,
       "destinationPath": "@/types/liveChatSuperStickerDetails.generated.ts"
     },
     "types/superStickerMetadata.generated.ts": {
       "lines": 6,
-      "characters": 309,
+      "characters": 323,
       "destinationPath": "@/types/superStickerMetadata.generated.ts"
     },
-    "types/liveChatMessageAuthorDetails.generated.ts": {
+    "types/liveChatTextMessageDetails.generated.ts": {
       "lines": 6,
-      "characters": 723,
-      "destinationPath": "@/types/liveChatMessageAuthorDetails.generated.ts"
+      "characters": 195,
+      "destinationPath": "@/types/liveChatTextMessageDetails.generated.ts"
     },
-    "types/error.generated.ts": {
+    "types/liveChatUserBannedMessageDetails.generated.ts": {
+      "lines": 7,
+      "characters": 544,
+      "destinationPath": "@/types/liveChatUserBannedMessageDetails.generated.ts"
+    },
+    "types/liveChatModeratorListResponse.generated.ts": {
+      "lines": 9,
+      "characters": 1032,
+      "destinationPath": "@/types/liveChatModeratorListResponse.generated.ts"
+    },
+    "types/liveChatModerator.generated.ts": {
+      "lines": 7,
+      "characters": 486,
+      "destinationPath": "@/types/liveChatModerator.generated.ts"
+    },
+    "types/liveChatModeratorSnippet.generated.ts": {
+      "lines": 7,
+      "characters": 403,
+      "destinationPath": "@/types/liveChatModeratorSnippet.generated.ts"
+    },
+    "types/liveStreamListResponse.generated.ts": {
+      "lines": 9,
+      "characters": 983,
+      "destinationPath": "@/types/liveStreamListResponse.generated.ts"
+    },
+    "types/liveStream.generated.ts": {
+      "lines": 10,
+      "characters": 969,
+      "destinationPath": "@/types/liveStream.generated.ts"
+    },
+    "types/cdnSettings.generated.ts": {
+      "lines": 7,
+      "characters": 787,
+      "destinationPath": "@/types/cdnSettings.generated.ts"
+    },
+    "types/ingestionInfo.generated.ts": {
       "lines": 6,
-      "characters": 523,
-      "destinationPath": "@/types/error.generated.ts"
+      "characters": 539,
+      "destinationPath": "@/types/ingestionInfo.generated.ts"
+    },
+    "types/liveStreamContentDetails.generated.ts": {
+      "lines": 6,
+      "characters": 293,
+      "destinationPath": "@/types/liveStreamContentDetails.generated.ts"
+    },
+    "types/liveStreamSnippet.generated.ts": {
+      "lines": 6,
+      "characters": 481,
+      "destinationPath": "@/types/liveStreamSnippet.generated.ts"
+    },
+    "types/liveStreamStatus.generated.ts": {
+      "lines": 7,
+      "characters": 484,
+      "destinationPath": "@/types/liveStreamStatus.generated.ts"
+    },
+    "types/liveStreamHealthStatus.generated.ts": {
+      "lines": 7,
+      "characters": 618,
+      "destinationPath": "@/types/liveStreamHealthStatus.generated.ts"
+    },
+    "types/liveStreamConfigurationIssue.generated.ts": {
+      "lines": 6,
+      "characters": 1856,
+      "destinationPath": "@/types/liveStreamConfigurationIssue.generated.ts"
+    },
+    "types/memberListResponse.generated.ts": {
+      "lines": 9,
+      "characters": 879,
+      "destinationPath": "@/types/memberListResponse.generated.ts"
+    },
+    "types/member.generated.ts": {
+      "lines": 7,
+      "characters": 355,
+      "destinationPath": "@/types/member.generated.ts"
+    },
+    "types/memberSnippet.generated.ts": {
+      "lines": 8,
+      "characters": 590,
+      "destinationPath": "@/types/memberSnippet.generated.ts"
+    },
+    "types/membershipsDetails.generated.ts": {
+      "lines": 8,
+      "characters": 909,
+      "destinationPath": "@/types/membershipsDetails.generated.ts"
+    },
+    "types/membershipsDuration.generated.ts": {
+      "lines": 6,
+      "characters": 287,
+      "destinationPath": "@/types/membershipsDuration.generated.ts"
+    },
+    "types/membershipsDurationAtLevel.generated.ts": {
+      "lines": 6,
+      "characters": 361,
+      "destinationPath": "@/types/membershipsDurationAtLevel.generated.ts"
+    },
+    "types/membershipsLevelListResponse.generated.ts": {
+      "lines": 7,
+      "characters": 558,
+      "destinationPath": "@/types/membershipsLevelListResponse.generated.ts"
+    },
+    "types/membershipsLevel.generated.ts": {
+      "lines": 7,
+      "characters": 479,
+      "destinationPath": "@/types/membershipsLevel.generated.ts"
+    },
+    "types/membershipsLevelSnippet.generated.ts": {
+      "lines": 7,
+      "characters": 360,
+      "destinationPath": "@/types/membershipsLevelSnippet.generated.ts"
+    },
+    "types/levelDetails.generated.ts": {
+      "lines": 6,
+      "characters": 167,
+      "destinationPath": "@/types/levelDetails.generated.ts"
+    },
+    "types/playlistItemListResponse.generated.ts": {
+      "lines": 9,
+      "characters": 997,
+      "destinationPath": "@/types/playlistItemListResponse.generated.ts"
+    },
+    "types/playlistItem.generated.ts": {
+      "lines": 9,
+      "characters": 865,
+      "destinationPath": "@/types/playlistItem.generated.ts"
+    },
+    "types/playlistItemContentDetails.generated.ts": {
+      "lines": 6,
+      "characters": 473,
+      "destinationPath": "@/types/playlistItemContentDetails.generated.ts"
+    },
+    "types/playlistItemSnippet.generated.ts": {
+      "lines": 8,
+      "characters": 1125,
+      "destinationPath": "@/types/playlistItemSnippet.generated.ts"
+    },
+    "types/playlistItemStatus.generated.ts": {
+      "lines": 6,
+      "characters": 241,
+      "destinationPath": "@/types/playlistItemStatus.generated.ts"
+    },
+    "types/playlistListResponse.generated.ts": {
+      "lines": 9,
+      "characters": 969,
+      "destinationPath": "@/types/playlistListResponse.generated.ts"
+    },
+    "types/playlist.generated.ts": {
+      "lines": 10,
+      "characters": 1072,
+      "destinationPath": "@/types/playlist.generated.ts"
+    },
+    "types/playlistContentDetails.generated.ts": {
+      "lines": 6,
+      "characters": 189,
+      "destinationPath": "@/types/playlistContentDetails.generated.ts"
+    },
+    "types/playlistPlayer.generated.ts": {
+      "lines": 6,
+      "characters": 167,
+      "destinationPath": "@/types/playlistPlayer.generated.ts"
+    },
+    "types/playlistSnippet.generated.ts": {
+      "lines": 8,
+      "characters": 1084,
+      "destinationPath": "@/types/playlistSnippet.generated.ts"
+    },
+    "types/playlistLocalization.generated.ts": {
+      "lines": 6,
+      "characters": 243,
+      "destinationPath": "@/types/playlistLocalization.generated.ts"
+    },
+    "types/playlistStatus.generated.ts": {
+      "lines": 6,
+      "characters": 233,
+      "destinationPath": "@/types/playlistStatus.generated.ts"
+    },
+    "types/searchListResponse.generated.ts": {
+      "lines": 9,
+      "characters": 1055,
+      "destinationPath": "@/types/searchListResponse.generated.ts"
+    },
+    "types/searchResult.generated.ts": {
+      "lines": 8,
+      "characters": 528,
+      "destinationPath": "@/types/searchResult.generated.ts"
+    },
+    "types/searchResultSnippet.generated.ts": {
+      "lines": 7,
+      "characters": 819,
+      "destinationPath": "@/types/searchResultSnippet.generated.ts"
+    },
+    "types/subscriptionListResponse.generated.ts": {
+      "lines": 9,
+      "characters": 997,
+      "destinationPath": "@/types/subscriptionListResponse.generated.ts"
+    },
+    "types/subscription.generated.ts": {
+      "lines": 9,
+      "characters": 942,
+      "destinationPath": "@/types/subscription.generated.ts"
+    },
+    "types/subscriptionContentDetails.generated.ts": {
+      "lines": 6,
+      "characters": 467,
+      "destinationPath": "@/types/subscriptionContentDetails.generated.ts"
+    },
+    "types/subscriptionSnippet.generated.ts": {
+      "lines": 8,
+      "characters": 801,
+      "destinationPath": "@/types/subscriptionSnippet.generated.ts"
+    },
+    "types/subscriptionSubscriberSnippet.generated.ts": {
+      "lines": 7,
+      "characters": 506,
+      "destinationPath": "@/types/subscriptionSubscriberSnippet.generated.ts"
+    },
+    "types/superChatEventListResponse.generated.ts": {
+      "lines": 9,
+      "characters": 935,
+      "destinationPath": "@/types/superChatEventListResponse.generated.ts"
+    },
+    "types/superChatEvent.generated.ts": {
+      "lines": 7,
+      "characters": 465,
+      "destinationPath": "@/types/superChatEvent.generated.ts"
+    },
+    "types/superChatEventSnippet.generated.ts": {
+      "lines": 8,
+      "characters": 1158,
+      "destinationPath": "@/types/superChatEventSnippet.generated.ts"
+    },
+    "types/testItem.generated.ts": {
+      "lines": 7,
+      "characters": 481,
+      "destinationPath": "@/types/testItem.generated.ts"
+    },
+    "types/testItemTestItemSnippet.generated.ts": {
+      "lines": 6,
+      "characters": 163,
+      "destinationPath": "@/types/testItemTestItemSnippet.generated.ts"
+    },
+    "types/thirdPartyLinkListResponse.generated.ts": {
+      "lines": 7,
+      "characters": 412,
+      "destinationPath": "@/types/thirdPartyLinkListResponse.generated.ts"
+    },
+    "types/thirdPartyLink.generated.ts": {
+      "lines": 8,
+      "characters": 674,
+      "destinationPath": "@/types/thirdPartyLink.generated.ts"
+    },
+    "types/thirdPartyLinkSnippet.generated.ts": {
+      "lines": 7,
+      "characters": 482,
+      "destinationPath": "@/types/thirdPartyLinkSnippet.generated.ts"
+    },
+    "types/channelToStoreLinkDetails.generated.ts": {
+      "lines": 6,
+      "characters": 325,
+      "destinationPath": "@/types/channelToStoreLinkDetails.generated.ts"
+    },
+    "types/thirdPartyLinkStatus.generated.ts": {
+      "lines": 6,
+      "characters": 258,
+      "destinationPath": "@/types/thirdPartyLinkStatus.generated.ts"
+    },
+    "types/thumbnailSetResponse.generated.ts": {
+      "lines": 7,
+      "characters": 542,
+      "destinationPath": "@/types/thumbnailSetResponse.generated.ts"
+    },
+    "types/videoAbuseReportReasonListResponse.generated.ts": {
+      "lines": 7,
+      "characters": 600,
+      "destinationPath": "@/types/videoAbuseReportReasonListResponse.generated.ts"
+    },
+    "types/videoAbuseReportReason.generated.ts": {
+      "lines": 7,
+      "characters": 521,
+      "destinationPath": "@/types/videoAbuseReportReason.generated.ts"
+    },
+    "types/videoAbuseReportReasonSnippet.generated.ts": {
+      "lines": 7,
+      "characters": 469,
+      "destinationPath": "@/types/videoAbuseReportReasonSnippet.generated.ts"
+    },
+    "types/videoAbuseReportSecondaryReason.generated.ts": {
+      "lines": 6,
+      "characters": 247,
+      "destinationPath": "@/types/videoAbuseReportSecondaryReason.generated.ts"
+    },
+    "types/videoCategoryListResponse.generated.ts": {
+      "lines": 9,
+      "characters": 1004,
+      "destinationPath": "@/types/videoCategoryListResponse.generated.ts"
+    },
+    "types/videoCategory.generated.ts": {
+      "lines": 7,
+      "characters": 458,
+      "destinationPath": "@/types/videoCategory.generated.ts"
+    },
+    "types/videoCategorySnippet.generated.ts": {
+      "lines": 6,
+      "characters": 311,
+      "destinationPath": "@/types/videoCategorySnippet.generated.ts"
+    },
+    "types/videoListResponse.generated.ts": {
+      "lines": 9,
+      "characters": 948,
+      "destinationPath": "@/types/videoListResponse.generated.ts"
+    },
+    "types/video.generated.ts": {
+      "lines": 20,
+      "characters": 2999,
+      "destinationPath": "@/types/video.generated.ts"
+    },
+    "types/videoAgeGating.generated.ts": {
+      "lines": 6,
+      "characters": 410,
+      "destinationPath": "@/types/videoAgeGating.generated.ts"
+    },
+    "types/videoContentDetails.generated.ts": {
+      "lines": 9,
+      "characters": 1324,
+      "destinationPath": "@/types/videoContentDetails.generated.ts"
+    },
+    "types/contentRating.generated.ts": {
+      "lines": 6,
+      "characters": 20378,
+      "destinationPath": "@/types/contentRating.generated.ts"
+    },
+    "types/accessPolicy.generated.ts": {
+      "lines": 6,
+      "characters": 252,
+      "destinationPath": "@/types/accessPolicy.generated.ts"
+    },
+    "types/videoContentDetailsRegionRestriction.generated.ts": {
+      "lines": 6,
+      "characters": 317,
+      "destinationPath": "@/types/videoContentDetailsRegionRestriction.generated.ts"
+    },
+    "types/videoFileDetails.generated.ts": {
+      "lines": 8,
+      "characters": 1223,
+      "destinationPath": "@/types/videoFileDetails.generated.ts"
+    },
+    "types/videoFileDetailsAudioStream.generated.ts": {
+      "lines": 6,
+      "characters": 397,
+      "destinationPath": "@/types/videoFileDetailsAudioStream.generated.ts"
+    },
+    "types/videoFileDetailsVideoStream.generated.ts": {
+      "lines": 6,
+      "characters": 809,
+      "destinationPath": "@/types/videoFileDetailsVideoStream.generated.ts"
+    },
+    "types/videoLiveStreamingDetails.generated.ts": {
+      "lines": 6,
+      "characters": 699,
+      "destinationPath": "@/types/videoLiveStreamingDetails.generated.ts"
+    },
+    "types/videoMonetizationDetails.generated.ts": {
+      "lines": 7,
+      "characters": 268,
+      "destinationPath": "@/types/videoMonetizationDetails.generated.ts"
+    },
+    "types/videoPlayer.generated.ts": {
+      "lines": 6,
+      "characters": 303,
+      "destinationPath": "@/types/videoPlayer.generated.ts"
+    },
+    "types/videoProcessingDetails.generated.ts": {
+      "lines": 7,
+      "characters": 1326,
+      "destinationPath": "@/types/videoProcessingDetails.generated.ts"
+    },
+    "types/videoProcessingDetailsProcessingProgress.generated.ts": {
+      "lines": 6,
+      "characters": 369,
+      "destinationPath": "@/types/videoProcessingDetailsProcessingProgress.generated.ts"
+    },
+    "types/videoProjectDetails.generated.ts": {
+      "lines": 6,
+      "characters": 155,
+      "destinationPath": "@/types/videoProjectDetails.generated.ts"
+    },
+    "types/videoRecordingDetails.generated.ts": {
+      "lines": 7,
+      "characters": 432,
+      "destinationPath": "@/types/videoRecordingDetails.generated.ts"
+    },
+    "types/geoPoint.generated.ts": {
+      "lines": 6,
+      "characters": 287,
+      "destinationPath": "@/types/geoPoint.generated.ts"
+    },
+    "types/videoSnippet.generated.ts": {
+      "lines": 8,
+      "characters": 1306,
+      "destinationPath": "@/types/videoSnippet.generated.ts"
+    },
+    "types/videoLocalization.generated.ts": {
+      "lines": 6,
+      "characters": 237,
+      "destinationPath": "@/types/videoLocalization.generated.ts"
+    },
+    "types/videoStatistics.generated.ts": {
+      "lines": 6,
+      "characters": 461,
+      "destinationPath": "@/types/videoStatistics.generated.ts"
+    },
+    "types/videoStatus.generated.ts": {
+      "lines": 6,
+      "characters": 1560,
+      "destinationPath": "@/types/videoStatus.generated.ts"
+    },
+    "types/videoSuggestions.generated.ts": {
+      "lines": 7,
+      "characters": 1946,
+      "destinationPath": "@/types/videoSuggestions.generated.ts"
+    },
+    "types/videoSuggestionsTagSuggestion.generated.ts": {
+      "lines": 6,
+      "characters": 292,
+      "destinationPath": "@/types/videoSuggestionsTagSuggestion.generated.ts"
+    },
+    "types/videoTopicDetails.generated.ts": {
+      "lines": 6,
+      "characters": 402,
+      "destinationPath": "@/types/videoTopicDetails.generated.ts"
+    },
+    "types/videoGetRatingResponse.generated.ts": {
+      "lines": 7,
+      "characters": 521,
+      "destinationPath": "@/types/videoGetRatingResponse.generated.ts"
+    },
+    "types/videoRating.generated.ts": {
+      "lines": 6,
+      "characters": 265,
+      "destinationPath": "@/types/videoRating.generated.ts"
+    },
+    "types/videoAbuseReport.generated.ts": {
+      "lines": 6,
+      "characters": 449,
+      "destinationPath": "@/types/videoAbuseReport.generated.ts"
+    },
+    "types/invideoBranding.generated.ts": {
+      "lines": 8,
+      "characters": 639,
+      "destinationPath": "@/types/invideoBranding.generated.ts"
+    },
+    "types/invideoPosition.generated.ts": {
+      "lines": 6,
+      "characters": 345,
+      "destinationPath": "@/types/invideoPosition.generated.ts"
+    },
+    "types/invideoTiming.generated.ts": {
+      "lines": 6,
+      "characters": 354,
+      "destinationPath": "@/types/invideoTiming.generated.ts"
     }
   },
   "previews": {},
   "mappings": {},
   "results": {
-    "b1866f7829d57314": {
+    "8aa33138a575da2d": {
       "generate": {
         "@skmtc/gen-basic-sdk": {
-          "/liveChatMessages": {
+          "/youtube/v3/abuseReports": {
+            "post": "success"
+          },
+          "/youtube/v3/activities": {
+            "get": "success"
+          },
+          "/youtube/v3/captions": {
+            "delete": "success",
+            "get": "success",
+            "post": "success",
+            "put": "success"
+          },
+          "/youtube/v3/captions/{id}": {
+            "get": "success"
+          },
+          "/youtube/v3/channelBanners/insert": {
+            "post": "success"
+          },
+          "/youtube/v3/channelSections": {
+            "delete": "success",
+            "get": "success",
+            "post": "success",
+            "put": "success"
+          },
+          "/youtube/v3/channels": {
+            "get": "success",
+            "put": "success"
+          },
+          "/youtube/v3/commentThreads": {
+            "get": "success",
+            "post": "success",
+            "put": "success"
+          },
+          "/youtube/v3/comments": {
+            "delete": "success",
+            "get": "success",
+            "post": "success",
+            "put": "success"
+          },
+          "/youtube/v3/comments/markAsSpam": {
+            "post": "success"
+          },
+          "/youtube/v3/comments/setModerationStatus": {
+            "post": "success"
+          },
+          "/youtube/v3/i18nLanguages": {
+            "get": "success"
+          },
+          "/youtube/v3/i18nRegions": {
+            "get": "success"
+          },
+          "/youtube/v3/liveBroadcasts": {
+            "delete": "success",
+            "get": "success",
+            "post": "success",
+            "put": "success"
+          },
+          "/youtube/v3/liveBroadcasts/bind": {
+            "post": "success"
+          },
+          "/youtube/v3/liveBroadcasts/cuepoint": {
+            "post": "success"
+          },
+          "/youtube/v3/liveBroadcasts/transition": {
+            "post": "success"
+          },
+          "/youtube/v3/liveChat/bans": {
+            "delete": "success",
+            "post": "success"
+          },
+          "/youtube/v3/liveChat/messages": {
+            "delete": "success",
             "get": "success",
             "post": "success"
           },
-          "/liveChatMessages/{id}": {
-            "delete": "success"
+          "/youtube/v3/liveChat/moderators": {
+            "delete": "success",
+            "get": "success",
+            "post": "success"
           },
-          "/liveChatMessages/transition": {
+          "/youtube/v3/liveStreams": {
+            "delete": "success",
+            "get": "success",
+            "post": "success",
+            "put": "success"
+          },
+          "/youtube/v3/members": {
+            "get": "success"
+          },
+          "/youtube/v3/membershipsLevels": {
+            "get": "success"
+          },
+          "/youtube/v3/playlistItems": {
+            "delete": "success",
+            "get": "success",
+            "post": "success",
+            "put": "success"
+          },
+          "/youtube/v3/playlists": {
+            "delete": "success",
+            "get": "success",
+            "post": "success",
+            "put": "success"
+          },
+          "/youtube/v3/search": {
+            "get": "success"
+          },
+          "/youtube/v3/subscriptions": {
+            "delete": "success",
+            "get": "success",
+            "post": "success"
+          },
+          "/youtube/v3/superChatEvents": {
+            "get": "success"
+          },
+          "/youtube/v3/tests": {
+            "post": "success"
+          },
+          "/youtube/v3/thirdPartyLinks": {
+            "delete": "success",
+            "get": "success",
+            "post": "success",
+            "put": "success"
+          },
+          "/youtube/v3/thumbnails/set": {
+            "post": "success"
+          },
+          "/youtube/v3/videoAbuseReportReasons": {
+            "get": "success"
+          },
+          "/youtube/v3/videoCategories": {
+            "get": "success"
+          },
+          "/youtube/v3/videos": {
+            "delete": "success",
+            "get": "success",
+            "post": "success",
+            "put": "success"
+          },
+          "/youtube/v3/videos/getRating": {
+            "get": "success"
+          },
+          "/youtube/v3/videos/rate": {
+            "post": "success"
+          },
+          "/youtube/v3/videos/reportAbuse": {
+            "post": "success"
+          },
+          "/youtube/v3/watermarks/set": {
+            "post": "success"
+          },
+          "/youtube/v3/watermarks/unset": {
             "post": "success"
           }
         },
         "@skmtc/gen-zod": {
-          "LiveChatMessage": "success",
-          "LiveChatMessageSnippet": "success",
-          "LiveChatMessageAuthorDetails": "success",
-          "LiveChatTextMessageDetails": "success",
-          "LiveChatSuperChatDetails": "success",
-          "LiveChatMemberMilestoneChatDetails": "success",
-          "LiveChatNewSponsorDetails": "success",
-          "LiveChatUserBannedDetails": "success",
-          "LiveChatMessageDeletedDetails": "success",
-          "LiveChatMessageRetractedDetails": "success",
-          "LiveChatPollDetails": "success",
-          "LiveChatPollDetailsPollMetadata": "success",
-          "LiveChatPollChoice": "success",
-          "LiveChatMembershipGiftingDetails": "success",
-          "LiveChatGiftMembershipReceivedDetails": "success",
-          "LiveChatSuperStickerDetails": "success",
-          "SuperStickerMetadata": "success",
+          "AbuseReport": "success",
+          "AbuseType": "success",
+          "AccessPolicy": "success",
+          "Activity": "success",
+          "ActivityContentDetails": "success",
+          "ActivityContentDetailsBulletin": "success",
+          "ActivityContentDetailsChannelItem": "success",
+          "ActivityContentDetailsComment": "success",
+          "ActivityContentDetailsFavorite": "success",
+          "ActivityContentDetailsLike": "success",
+          "ActivityContentDetailsPlaylistItem": "success",
+          "ActivityContentDetailsPromotedItem": "success",
+          "ActivityContentDetailsRecommendation": "success",
+          "ActivityContentDetailsSocial": "success",
+          "ActivityContentDetailsSubscription": "success",
+          "ActivityContentDetailsUpload": "success",
+          "ActivityListResponse": "success",
+          "ActivitySnippet": "success",
+          "Caption": "success",
+          "CaptionListResponse": "success",
+          "CaptionSnippet": "success",
+          "CdnSettings": "success",
+          "Channel": "success",
+          "ChannelAuditDetails": "success",
+          "ChannelBannerResource": "success",
+          "ChannelBrandingSettings": "success",
+          "ChannelContentDetails": "success",
+          "ChannelContentOwnerDetails": "success",
+          "ChannelConversionPing": "success",
+          "ChannelConversionPings": "success",
+          "ChannelListResponse": "success",
+          "ChannelLocalization": "success",
           "ChannelProfileDetails": "success",
+          "ChannelSection": "success",
+          "ChannelSectionContentDetails": "success",
+          "ChannelSectionListResponse": "success",
+          "ChannelSectionLocalization": "success",
+          "ChannelSectionSnippet": "success",
+          "ChannelSectionTargeting": "success",
+          "ChannelSettings": "success",
+          "ChannelSnippet": "success",
+          "ChannelStatistics": "success",
+          "ChannelStatus": "success",
+          "ChannelToStoreLinkDetails": "success",
+          "ChannelTopicDetails": "success",
+          "Comment": "success",
+          "CommentListResponse": "success",
+          "CommentSnippet": "success",
+          "CommentSnippetAuthorChannelId": "success",
+          "CommentThread": "success",
+          "CommentThreadListResponse": "success",
+          "CommentThreadReplies": "success",
+          "CommentThreadSnippet": "success",
+          "ContentRating": "success",
+          "Cuepoint": "success",
+          "Entity": "success",
+          "GeoPoint": "success",
+          "I18nLanguage": "success",
+          "I18nLanguageListResponse": "success",
+          "I18nLanguageSnippet": "success",
+          "I18nRegion": "success",
+          "I18nRegionListResponse": "success",
+          "I18nRegionSnippet": "success",
+          "ImageSettings": "success",
+          "IngestionInfo": "success",
+          "InvideoBranding": "success",
+          "InvideoPosition": "success",
+          "InvideoTiming": "success",
+          "LanguageTag": "success",
+          "LevelDetails": "success",
+          "LiveBroadcast": "success",
+          "LiveBroadcastContentDetails": "success",
+          "LiveBroadcastListResponse": "success",
+          "LiveBroadcastSnippet": "success",
+          "LiveBroadcastStatistics": "success",
+          "LiveBroadcastStatus": "success",
+          "LiveChatBan": "success",
+          "LiveChatBanSnippet": "success",
+          "LiveChatFanFundingEventDetails": "success",
+          "LiveChatGiftMembershipReceivedDetails": "success",
+          "LiveChatMemberMilestoneChatDetails": "success",
+          "LiveChatMembershipGiftingDetails": "success",
+          "LiveChatMessage": "success",
+          "LiveChatMessageAuthorDetails": "success",
+          "LiveChatMessageDeletedDetails": "success",
           "LiveChatMessageListResponse": "success",
+          "LiveChatMessageRetractedDetails": "success",
+          "LiveChatMessageSnippet": "success",
+          "LiveChatModerator": "success",
+          "LiveChatModeratorListResponse": "success",
+          "LiveChatModeratorSnippet": "success",
+          "LiveChatNewSponsorDetails": "success",
+          "LiveChatSuperChatDetails": "success",
+          "LiveChatSuperStickerDetails": "success",
+          "LiveChatTextMessageDetails": "success",
+          "LiveChatUserBannedMessageDetails": "success",
+          "LiveStream": "success",
+          "LiveStreamConfigurationIssue": "success",
+          "LiveStreamContentDetails": "success",
+          "LiveStreamHealthStatus": "success",
+          "LiveStreamListResponse": "success",
+          "LiveStreamSnippet": "success",
+          "LiveStreamStatus": "success",
+          "LocalizedProperty": "success",
+          "LocalizedString": "success",
+          "Member": "success",
+          "MemberListResponse": "success",
+          "MemberSnippet": "success",
+          "MembershipsDetails": "success",
+          "MembershipsDuration": "success",
+          "MembershipsDurationAtLevel": "success",
+          "MembershipsLevel": "success",
+          "MembershipsLevelListResponse": "success",
+          "MembershipsLevelSnippet": "success",
+          "MonitorStreamInfo": "success",
           "PageInfo": "success",
-          "Error": "success"
+          "Playlist": "success",
+          "PlaylistContentDetails": "success",
+          "PlaylistItem": "success",
+          "PlaylistItemContentDetails": "success",
+          "PlaylistItemListResponse": "success",
+          "PlaylistItemSnippet": "success",
+          "PlaylistItemStatus": "success",
+          "PlaylistListResponse": "success",
+          "PlaylistLocalization": "success",
+          "PlaylistPlayer": "success",
+          "PlaylistSnippet": "success",
+          "PlaylistStatus": "success",
+          "PropertyValue": "success",
+          "RelatedEntity": "success",
+          "ResourceId": "success",
+          "SearchListResponse": "success",
+          "SearchResult": "success",
+          "SearchResultSnippet": "success",
+          "Subscription": "success",
+          "SubscriptionContentDetails": "success",
+          "SubscriptionListResponse": "success",
+          "SubscriptionSnippet": "success",
+          "SubscriptionSubscriberSnippet": "success",
+          "SuperChatEvent": "success",
+          "SuperChatEventListResponse": "success",
+          "SuperChatEventSnippet": "success",
+          "SuperStickerMetadata": "success",
+          "TestItem": "success",
+          "TestItemTestItemSnippet": "success",
+          "ThirdPartyLink": "success",
+          "ThirdPartyLinkListResponse": "success",
+          "ThirdPartyLinkSnippet": "success",
+          "ThirdPartyLinkStatus": "success",
+          "Thumbnail": "success",
+          "ThumbnailDetails": "success",
+          "ThumbnailSetResponse": "success",
+          "TokenPagination": "success",
+          "Video": "success",
+          "VideoAbuseReport": "success",
+          "VideoAbuseReportReason": "success",
+          "VideoAbuseReportReasonListResponse": "success",
+          "VideoAbuseReportReasonSnippet": "success",
+          "VideoAbuseReportSecondaryReason": "success",
+          "VideoAgeGating": "success",
+          "VideoCategory": "success",
+          "VideoCategoryListResponse": "success",
+          "VideoCategorySnippet": "success",
+          "VideoContentDetails": "success",
+          "VideoContentDetailsRegionRestriction": "success",
+          "VideoFileDetails": "success",
+          "VideoFileDetailsAudioStream": "success",
+          "VideoFileDetailsVideoStream": "success",
+          "VideoGetRatingResponse": "success",
+          "VideoListResponse": "success",
+          "VideoLiveStreamingDetails": "success",
+          "VideoLocalization": "success",
+          "VideoMonetizationDetails": "success",
+          "VideoPlayer": "success",
+          "VideoProcessingDetails": "success",
+          "VideoProcessingDetailsProcessingProgress": "success",
+          "VideoProjectDetails": "success",
+          "VideoRating": "success",
+          "VideoRecordingDetails": "success",
+          "VideoSnippet": "success",
+          "VideoStatistics": "success",
+          "VideoStatus": "success",
+          "VideoSuggestions": "success",
+          "VideoSuggestionsTagSuggestion": "success",
+          "VideoTopicDetails": "success",
+          "WatchSettings": "success"
         },
         "@skmtc/gen-typescript": {
-          "LiveChatMessage": "success",
-          "LiveChatMessageSnippet": "success",
-          "LiveChatMessageAuthorDetails": "success",
-          "LiveChatTextMessageDetails": "success",
-          "LiveChatSuperChatDetails": "success",
-          "LiveChatMemberMilestoneChatDetails": "success",
-          "LiveChatNewSponsorDetails": "success",
-          "LiveChatUserBannedDetails": "success",
-          "LiveChatMessageDeletedDetails": "success",
-          "LiveChatMessageRetractedDetails": "success",
-          "LiveChatPollDetails": "success",
-          "LiveChatPollDetailsPollMetadata": "success",
-          "LiveChatPollChoice": "success",
-          "LiveChatMembershipGiftingDetails": "success",
-          "LiveChatGiftMembershipReceivedDetails": "success",
-          "LiveChatSuperStickerDetails": "success",
-          "SuperStickerMetadata": "success",
+          "AbuseReport": "success",
+          "AbuseType": "success",
+          "AccessPolicy": "success",
+          "Activity": "success",
+          "ActivityContentDetails": "success",
+          "ActivityContentDetailsBulletin": "success",
+          "ActivityContentDetailsChannelItem": "success",
+          "ActivityContentDetailsComment": "success",
+          "ActivityContentDetailsFavorite": "success",
+          "ActivityContentDetailsLike": "success",
+          "ActivityContentDetailsPlaylistItem": "success",
+          "ActivityContentDetailsPromotedItem": "success",
+          "ActivityContentDetailsRecommendation": "success",
+          "ActivityContentDetailsSocial": "success",
+          "ActivityContentDetailsSubscription": "success",
+          "ActivityContentDetailsUpload": "success",
+          "ActivityListResponse": "success",
+          "ActivitySnippet": "success",
+          "Caption": "success",
+          "CaptionListResponse": "success",
+          "CaptionSnippet": "success",
+          "CdnSettings": "success",
+          "Channel": "success",
+          "ChannelAuditDetails": "success",
+          "ChannelBannerResource": "success",
+          "ChannelBrandingSettings": "success",
+          "ChannelContentDetails": "success",
+          "ChannelContentOwnerDetails": "success",
+          "ChannelConversionPing": "success",
+          "ChannelConversionPings": "success",
+          "ChannelListResponse": "success",
+          "ChannelLocalization": "success",
           "ChannelProfileDetails": "success",
+          "ChannelSection": "success",
+          "ChannelSectionContentDetails": "success",
+          "ChannelSectionListResponse": "success",
+          "ChannelSectionLocalization": "success",
+          "ChannelSectionSnippet": "success",
+          "ChannelSectionTargeting": "success",
+          "ChannelSettings": "success",
+          "ChannelSnippet": "success",
+          "ChannelStatistics": "success",
+          "ChannelStatus": "success",
+          "ChannelToStoreLinkDetails": "success",
+          "ChannelTopicDetails": "success",
+          "Comment": "success",
+          "CommentListResponse": "success",
+          "CommentSnippet": "success",
+          "CommentSnippetAuthorChannelId": "success",
+          "CommentThread": "success",
+          "CommentThreadListResponse": "success",
+          "CommentThreadReplies": "success",
+          "CommentThreadSnippet": "success",
+          "ContentRating": "success",
+          "Cuepoint": "success",
+          "Entity": "success",
+          "GeoPoint": "success",
+          "I18nLanguage": "success",
+          "I18nLanguageListResponse": "success",
+          "I18nLanguageSnippet": "success",
+          "I18nRegion": "success",
+          "I18nRegionListResponse": "success",
+          "I18nRegionSnippet": "success",
+          "ImageSettings": "success",
+          "IngestionInfo": "success",
+          "InvideoBranding": "success",
+          "InvideoPosition": "success",
+          "InvideoTiming": "success",
+          "LanguageTag": "success",
+          "LevelDetails": "success",
+          "LiveBroadcast": "success",
+          "LiveBroadcastContentDetails": "success",
+          "LiveBroadcastListResponse": "success",
+          "LiveBroadcastSnippet": "success",
+          "LiveBroadcastStatistics": "success",
+          "LiveBroadcastStatus": "success",
+          "LiveChatBan": "success",
+          "LiveChatBanSnippet": "success",
+          "LiveChatFanFundingEventDetails": "success",
+          "LiveChatGiftMembershipReceivedDetails": "success",
+          "LiveChatMemberMilestoneChatDetails": "success",
+          "LiveChatMembershipGiftingDetails": "success",
+          "LiveChatMessage": "success",
+          "LiveChatMessageAuthorDetails": "success",
+          "LiveChatMessageDeletedDetails": "success",
           "LiveChatMessageListResponse": "success",
+          "LiveChatMessageRetractedDetails": "success",
+          "LiveChatMessageSnippet": "success",
+          "LiveChatModerator": "success",
+          "LiveChatModeratorListResponse": "success",
+          "LiveChatModeratorSnippet": "success",
+          "LiveChatNewSponsorDetails": "success",
+          "LiveChatSuperChatDetails": "success",
+          "LiveChatSuperStickerDetails": "success",
+          "LiveChatTextMessageDetails": "success",
+          "LiveChatUserBannedMessageDetails": "success",
+          "LiveStream": "success",
+          "LiveStreamConfigurationIssue": "success",
+          "LiveStreamContentDetails": "success",
+          "LiveStreamHealthStatus": "success",
+          "LiveStreamListResponse": "success",
+          "LiveStreamSnippet": "success",
+          "LiveStreamStatus": "success",
+          "LocalizedProperty": "success",
+          "LocalizedString": "success",
+          "Member": "success",
+          "MemberListResponse": "success",
+          "MemberSnippet": "success",
+          "MembershipsDetails": "success",
+          "MembershipsDuration": "success",
+          "MembershipsDurationAtLevel": "success",
+          "MembershipsLevel": "success",
+          "MembershipsLevelListResponse": "success",
+          "MembershipsLevelSnippet": "success",
+          "MonitorStreamInfo": "success",
           "PageInfo": "success",
-          "Error": "success"
+          "Playlist": "success",
+          "PlaylistContentDetails": "success",
+          "PlaylistItem": "success",
+          "PlaylistItemContentDetails": "success",
+          "PlaylistItemListResponse": "success",
+          "PlaylistItemSnippet": "success",
+          "PlaylistItemStatus": "success",
+          "PlaylistListResponse": "success",
+          "PlaylistLocalization": "success",
+          "PlaylistPlayer": "success",
+          "PlaylistSnippet": "success",
+          "PlaylistStatus": "success",
+          "PropertyValue": "success",
+          "RelatedEntity": "success",
+          "ResourceId": "success",
+          "SearchListResponse": "success",
+          "SearchResult": "success",
+          "SearchResultSnippet": "success",
+          "Subscription": "success",
+          "SubscriptionContentDetails": "success",
+          "SubscriptionListResponse": "success",
+          "SubscriptionSnippet": "success",
+          "SubscriptionSubscriberSnippet": "success",
+          "SuperChatEvent": "success",
+          "SuperChatEventListResponse": "success",
+          "SuperChatEventSnippet": "success",
+          "SuperStickerMetadata": "success",
+          "TestItem": "success",
+          "TestItemTestItemSnippet": "success",
+          "ThirdPartyLink": "success",
+          "ThirdPartyLinkListResponse": "success",
+          "ThirdPartyLinkSnippet": "success",
+          "ThirdPartyLinkStatus": "success",
+          "Thumbnail": "success",
+          "ThumbnailDetails": "success",
+          "ThumbnailSetResponse": "success",
+          "TokenPagination": "success",
+          "Video": "success",
+          "VideoAbuseReport": "success",
+          "VideoAbuseReportReason": "success",
+          "VideoAbuseReportReasonListResponse": "success",
+          "VideoAbuseReportReasonSnippet": "success",
+          "VideoAbuseReportSecondaryReason": "success",
+          "VideoAgeGating": "success",
+          "VideoCategory": "success",
+          "VideoCategoryListResponse": "success",
+          "VideoCategorySnippet": "success",
+          "VideoContentDetails": "success",
+          "VideoContentDetailsRegionRestriction": "success",
+          "VideoFileDetails": "success",
+          "VideoFileDetailsAudioStream": "success",
+          "VideoFileDetailsVideoStream": "success",
+          "VideoGetRatingResponse": "success",
+          "VideoListResponse": "success",
+          "VideoLiveStreamingDetails": "success",
+          "VideoLocalization": "success",
+          "VideoMonetizationDetails": "success",
+          "VideoPlayer": "success",
+          "VideoProcessingDetails": "success",
+          "VideoProcessingDetailsProcessingProgress": "success",
+          "VideoProjectDetails": "success",
+          "VideoRating": "success",
+          "VideoRecordingDetails": "success",
+          "VideoSnippet": "success",
+          "VideoStatistics": "success",
+          "VideoStatus": "success",
+          "VideoSuggestions": "success",
+          "VideoSuggestionsTagSuggestion": "success",
+          "VideoTopicDetails": "success",
+          "WatchSettings": "success"
         }
       },
       "render": {
         "@/YouTubeClient.generated.ts": "success",
-        "@/types/liveChatMessageListResponse.generated.ts": "success",
+        "@/types/abuseReport.generated.ts": "success",
+        "@/types/abuseType.generated.ts": "success",
+        "@/types/relatedEntity.generated.ts": "success",
+        "@/types/entity.generated.ts": "success",
+        "@/types/activityListResponse.generated.ts": "success",
+        "@/types/activity.generated.ts": "success",
+        "@/types/activityContentDetails.generated.ts": "success",
+        "@/types/activityContentDetailsBulletin.generated.ts": "success",
+        "@/types/resourceId.generated.ts": "success",
+        "@/types/activityContentDetailsChannelItem.generated.ts": "success",
+        "@/types/activityContentDetailsComment.generated.ts": "success",
+        "@/types/activityContentDetailsFavorite.generated.ts": "success",
+        "@/types/activityContentDetailsLike.generated.ts": "success",
+        "@/types/activityContentDetailsPlaylistItem.generated.ts": "success",
+        "@/types/activityContentDetailsPromotedItem.generated.ts": "success",
+        "@/types/activityContentDetailsRecommendation.generated.ts": "success",
+        "@/types/activityContentDetailsSocial.generated.ts": "success",
+        "@/types/activityContentDetailsSubscription.generated.ts": "success",
+        "@/types/activityContentDetailsUpload.generated.ts": "success",
+        "@/types/activitySnippet.generated.ts": "success",
+        "@/types/thumbnailDetails.generated.ts": "success",
+        "@/types/thumbnail.generated.ts": "success",
         "@/types/pageInfo.generated.ts": "success",
-        "@/types/liveChatMessage.generated.ts": "success",
-        "@/types/liveChatMessageSnippet.generated.ts": "success",
-        "@/types/liveChatTextMessageDetails.generated.ts": "success",
-        "@/types/liveChatSuperChatDetails.generated.ts": "success",
-        "@/types/liveChatMemberMilestoneChatDetails.generated.ts": "success",
-        "@/types/liveChatNewSponsorDetails.generated.ts": "success",
-        "@/types/liveChatUserBannedDetails.generated.ts": "success",
+        "@/types/tokenPagination.generated.ts": "success",
+        "@/types/captionListResponse.generated.ts": "success",
+        "@/types/caption.generated.ts": "success",
+        "@/types/captionSnippet.generated.ts": "success",
+        "@/types/channelBannerResource.generated.ts": "success",
+        "@/types/channelSectionListResponse.generated.ts": "success",
+        "@/types/channelSection.generated.ts": "success",
+        "@/types/channelSectionContentDetails.generated.ts": "success",
+        "@/types/channelSectionSnippet.generated.ts": "success",
+        "@/types/channelSectionLocalization.generated.ts": "success",
+        "@/types/channelSectionTargeting.generated.ts": "success",
+        "@/types/channelListResponse.generated.ts": "success",
+        "@/types/channel.generated.ts": "success",
+        "@/types/channelAuditDetails.generated.ts": "success",
+        "@/types/channelBrandingSettings.generated.ts": "success",
+        "@/types/channelSettings.generated.ts": "success",
+        "@/types/propertyValue.generated.ts": "success",
+        "@/types/imageSettings.generated.ts": "success",
+        "@/types/localizedProperty.generated.ts": "success",
+        "@/types/languageTag.generated.ts": "success",
+        "@/types/localizedString.generated.ts": "success",
+        "@/types/watchSettings.generated.ts": "success",
+        "@/types/channelContentDetails.generated.ts": "success",
+        "@/types/channelContentOwnerDetails.generated.ts": "success",
+        "@/types/channelConversionPings.generated.ts": "success",
+        "@/types/channelConversionPing.generated.ts": "success",
+        "@/types/channelSnippet.generated.ts": "success",
+        "@/types/channelLocalization.generated.ts": "success",
+        "@/types/channelStatistics.generated.ts": "success",
+        "@/types/channelStatus.generated.ts": "success",
+        "@/types/channelTopicDetails.generated.ts": "success",
+        "@/types/commentThreadListResponse.generated.ts": "success",
+        "@/types/commentThread.generated.ts": "success",
+        "@/types/commentThreadReplies.generated.ts": "success",
+        "@/types/comment.generated.ts": "success",
+        "@/types/commentSnippet.generated.ts": "success",
+        "@/types/commentSnippetAuthorChannelId.generated.ts": "success",
+        "@/types/commentThreadSnippet.generated.ts": "success",
+        "@/types/commentListResponse.generated.ts": "success",
+        "@/types/i18nLanguageListResponse.generated.ts": "success",
+        "@/types/i18nLanguage.generated.ts": "success",
+        "@/types/i18nLanguageSnippet.generated.ts": "success",
+        "@/types/i18nRegionListResponse.generated.ts": "success",
+        "@/types/i18nRegion.generated.ts": "success",
+        "@/types/i18nRegionSnippet.generated.ts": "success",
+        "@/types/liveBroadcastListResponse.generated.ts": "success",
+        "@/types/liveBroadcast.generated.ts": "success",
+        "@/types/liveBroadcastContentDetails.generated.ts": "success",
+        "@/types/monitorStreamInfo.generated.ts": "success",
+        "@/types/liveBroadcastSnippet.generated.ts": "success",
+        "@/types/liveBroadcastStatistics.generated.ts": "success",
+        "@/types/liveBroadcastStatus.generated.ts": "success",
+        "@/types/cuepoint.generated.ts": "success",
+        "@/types/liveChatBan.generated.ts": "success",
+        "@/types/liveChatBanSnippet.generated.ts": "success",
         "@/types/channelProfileDetails.generated.ts": "success",
+        "@/types/liveChatMessageListResponse.generated.ts": "success",
+        "@/types/liveChatMessage.generated.ts": "success",
+        "@/types/liveChatMessageAuthorDetails.generated.ts": "success",
+        "@/types/liveChatMessageSnippet.generated.ts": "success",
+        "@/types/liveChatFanFundingEventDetails.generated.ts": "success",
+        "@/types/liveChatGiftMembershipReceivedDetails.generated.ts": "success",
+        "@/types/liveChatMemberMilestoneChatDetails.generated.ts": "success",
+        "@/types/liveChatMembershipGiftingDetails.generated.ts": "success",
         "@/types/liveChatMessageDeletedDetails.generated.ts": "success",
         "@/types/liveChatMessageRetractedDetails.generated.ts": "success",
-        "@/types/liveChatPollDetails.generated.ts": "success",
-        "@/types/liveChatPollDetailsPollMetadata.generated.ts": "success",
-        "@/types/liveChatPollChoice.generated.ts": "success",
-        "@/types/liveChatMembershipGiftingDetails.generated.ts": "success",
-        "@/types/liveChatGiftMembershipReceivedDetails.generated.ts": "success",
+        "@/types/liveChatNewSponsorDetails.generated.ts": "success",
+        "@/types/liveChatSuperChatDetails.generated.ts": "success",
         "@/types/liveChatSuperStickerDetails.generated.ts": "success",
         "@/types/superStickerMetadata.generated.ts": "success",
-        "@/types/liveChatMessageAuthorDetails.generated.ts": "success",
-        "@/types/error.generated.ts": "success"
+        "@/types/liveChatTextMessageDetails.generated.ts": "success",
+        "@/types/liveChatUserBannedMessageDetails.generated.ts": "success",
+        "@/types/liveChatModeratorListResponse.generated.ts": "success",
+        "@/types/liveChatModerator.generated.ts": "success",
+        "@/types/liveChatModeratorSnippet.generated.ts": "success",
+        "@/types/liveStreamListResponse.generated.ts": "success",
+        "@/types/liveStream.generated.ts": "success",
+        "@/types/cdnSettings.generated.ts": "success",
+        "@/types/ingestionInfo.generated.ts": "success",
+        "@/types/liveStreamContentDetails.generated.ts": "success",
+        "@/types/liveStreamSnippet.generated.ts": "success",
+        "@/types/liveStreamStatus.generated.ts": "success",
+        "@/types/liveStreamHealthStatus.generated.ts": "success",
+        "@/types/liveStreamConfigurationIssue.generated.ts": "success",
+        "@/types/memberListResponse.generated.ts": "success",
+        "@/types/member.generated.ts": "success",
+        "@/types/memberSnippet.generated.ts": "success",
+        "@/types/membershipsDetails.generated.ts": "success",
+        "@/types/membershipsDuration.generated.ts": "success",
+        "@/types/membershipsDurationAtLevel.generated.ts": "success",
+        "@/types/membershipsLevelListResponse.generated.ts": "success",
+        "@/types/membershipsLevel.generated.ts": "success",
+        "@/types/membershipsLevelSnippet.generated.ts": "success",
+        "@/types/levelDetails.generated.ts": "success",
+        "@/types/playlistItemListResponse.generated.ts": "success",
+        "@/types/playlistItem.generated.ts": "success",
+        "@/types/playlistItemContentDetails.generated.ts": "success",
+        "@/types/playlistItemSnippet.generated.ts": "success",
+        "@/types/playlistItemStatus.generated.ts": "success",
+        "@/types/playlistListResponse.generated.ts": "success",
+        "@/types/playlist.generated.ts": "success",
+        "@/types/playlistContentDetails.generated.ts": "success",
+        "@/types/playlistPlayer.generated.ts": "success",
+        "@/types/playlistSnippet.generated.ts": "success",
+        "@/types/playlistLocalization.generated.ts": "success",
+        "@/types/playlistStatus.generated.ts": "success",
+        "@/types/searchListResponse.generated.ts": "success",
+        "@/types/searchResult.generated.ts": "success",
+        "@/types/searchResultSnippet.generated.ts": "success",
+        "@/types/subscriptionListResponse.generated.ts": "success",
+        "@/types/subscription.generated.ts": "success",
+        "@/types/subscriptionContentDetails.generated.ts": "success",
+        "@/types/subscriptionSnippet.generated.ts": "success",
+        "@/types/subscriptionSubscriberSnippet.generated.ts": "success",
+        "@/types/superChatEventListResponse.generated.ts": "success",
+        "@/types/superChatEvent.generated.ts": "success",
+        "@/types/superChatEventSnippet.generated.ts": "success",
+        "@/types/testItem.generated.ts": "success",
+        "@/types/testItemTestItemSnippet.generated.ts": "success",
+        "@/types/thirdPartyLinkListResponse.generated.ts": "success",
+        "@/types/thirdPartyLink.generated.ts": "success",
+        "@/types/thirdPartyLinkSnippet.generated.ts": "success",
+        "@/types/channelToStoreLinkDetails.generated.ts": "success",
+        "@/types/thirdPartyLinkStatus.generated.ts": "success",
+        "@/types/thumbnailSetResponse.generated.ts": "success",
+        "@/types/videoAbuseReportReasonListResponse.generated.ts": "success",
+        "@/types/videoAbuseReportReason.generated.ts": "success",
+        "@/types/videoAbuseReportReasonSnippet.generated.ts": "success",
+        "@/types/videoAbuseReportSecondaryReason.generated.ts": "success",
+        "@/types/videoCategoryListResponse.generated.ts": "success",
+        "@/types/videoCategory.generated.ts": "success",
+        "@/types/videoCategorySnippet.generated.ts": "success",
+        "@/types/videoListResponse.generated.ts": "success",
+        "@/types/video.generated.ts": "success",
+        "@/types/videoAgeGating.generated.ts": "success",
+        "@/types/videoContentDetails.generated.ts": "success",
+        "@/types/contentRating.generated.ts": "success",
+        "@/types/accessPolicy.generated.ts": "success",
+        "@/types/videoContentDetailsRegionRestriction.generated.ts": "success",
+        "@/types/videoFileDetails.generated.ts": "success",
+        "@/types/videoFileDetailsAudioStream.generated.ts": "success",
+        "@/types/videoFileDetailsVideoStream.generated.ts": "success",
+        "@/types/videoLiveStreamingDetails.generated.ts": "success",
+        "@/types/videoMonetizationDetails.generated.ts": "success",
+        "@/types/videoPlayer.generated.ts": "success",
+        "@/types/videoProcessingDetails.generated.ts": "success",
+        "@/types/videoProcessingDetailsProcessingProgress.generated.ts": "success",
+        "@/types/videoProjectDetails.generated.ts": "success",
+        "@/types/videoRecordingDetails.generated.ts": "success",
+        "@/types/geoPoint.generated.ts": "success",
+        "@/types/videoSnippet.generated.ts": "success",
+        "@/types/videoLocalization.generated.ts": "success",
+        "@/types/videoStatistics.generated.ts": "success",
+        "@/types/videoStatus.generated.ts": "success",
+        "@/types/videoSuggestions.generated.ts": "success",
+        "@/types/videoSuggestionsTagSuggestion.generated.ts": "success",
+        "@/types/videoTopicDetails.generated.ts": "success",
+        "@/types/videoGetRatingResponse.generated.ts": "success",
+        "@/types/videoRating.generated.ts": "success",
+        "@/types/videoAbuseReport.generated.ts": "success",
+        "@/types/invideoBranding.generated.ts": "success",
+        "@/types/invideoPosition.generated.ts": "success",
+        "@/types/invideoTiming.generated.ts": "success"
       }
     }
   },
-  "startAt": 1756233608801,
-  "endAt": 1756233608853
+  "startAt": 1756314091588,
+  "endAt": 1756314091767
 }

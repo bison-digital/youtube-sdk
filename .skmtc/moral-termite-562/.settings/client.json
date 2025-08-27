@@ -1,5 +1,7 @@
 {
   "deploymentId": "dd2mnz4k3qxn",
+  "serverName": "moral-termite-562",
+  "serverOrigin": "https://moral-termite-562-dd2mnz4k3qxn.deno.dev",
   "settings": {
     "basePath": "src"
   }

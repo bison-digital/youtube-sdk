@@ -109,14 +109,24 @@ export class SdkClientBase {
     return this.credentials
   }
 
-  toQuery(params?: Record<string, string | number | undefined>): string {
+  toQuery(params?: Record<string, string | number | boolean | string[] | undefined>): string {
     if (!params || Object.keys(params).length === 0) {
       return ''
     }
 
     const entries = Object.entries(params)
       .filter(([_, value]) => value !== undefined)
-      .map(([key, value]) => [key, `${value}`])
+      .map(([key, value]) => {
+        if (Array.isArray(value)) {
+          // Join arrays with commas for YouTube API
+          return [key, value.join(',')]
+        } else if (typeof value === 'boolean') {
+          // Convert booleans to strings
+          return [key, value.toString()]
+        } else {
+          return [key, `${value}`]
+        }
+      })
 
     const queryParams = new URLSearchParams(entries)
 

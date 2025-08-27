@@ -43,8 +43,8 @@ jobs:
           echo "Generating YouTube SDK from OpenAPI spec..."
           
           # Remove lockfiles to avoid version conflicts
-          rm -f .skmtc/pregnant-tuna-704/deno.lock
-          rm -f .skmtc/pregnant-tuna-704/gen-basic-sdk/deno.lock
+          rm -f .skmtc/moral-termite-562/deno.lock
+          rm -f .skmtc/moral-termite-562/gen-basic-sdk/deno.lock
           
           # Run the SKMTC CLI to generate SDK code
           deno run -A --unstable-kv jsr:@skmtc/cli generators:generate moral-termite-562 .
@@ -53,24 +53,15 @@ jobs:
           echo "Generated files:"
           find src -name "*.ts" -type f | head -10
 
-      - name: Fix imports for Node.js
+      - name: Fix imports and generate types index
         run: |
-          echo "Fixing .ts extensions to .js in import statements..."
+          echo "Fixing imports and generating types index..."
           
-          # Fix .ts extensions to .js in all generated files
-          find src -name "*.generated.ts" -exec sed -i "s/from '\([^']*\)\.ts'/from '\1.js'/g" {} \;
+          # Use our automated scripts to fix imports and generate types index
+          node fix-imports.js
+          node generate-types-index.js
           
-          # Create types/index.ts to export all generated types
-          echo "Creating types/index.ts..."
-          echo "// Auto-generated index file for all types" > src/types/index.ts
-          find src/types -name "*.generated.ts" | sort | while read file; do
-            basename=$(basename "$file" .generated.ts)
-            # Convert kebab-case to PascalCase for type names  
-            typename=$(echo "$basename" | sed 's/-\([a-z]\)/\U\1/g' | sed 's/^./\U&/')
-            echo "export type { ${typename} } from './${basename}.generated.js';" >> src/types/index.ts
-          done
-          
-          echo "✅ Fixed imports for Node.js compilation"
+          echo "✅ Fixed imports and generated types index"
           
       - name: Verify generated SDK
         run: |
@@ -85,9 +76,8 @@ jobs:
 
       - name: Build package
         run: |
-          # Build the TypeScript package
-          npx tsc
-          npx rollup -c
+          # Use our build process that handles all the fixes
+          npm run build
 
       - name: Run tests (if any)
         run: |
